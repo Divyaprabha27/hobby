@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop | RCSpeed</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/png" href="assets/favicon.png">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,300;0,600;0,800;1,600&family=Inter:wght@300;400;600&display=swap"
+        rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="components/common-styles.css">
+</head>
+
+<body>
+
+     <!-- Common Header -->
+    <div id="header-container"></div>
+    <!-- Shop Header -->
+    <header class="shop-header">
+        <div class="container">
+            <h1>All Products</h1>
+            <p>High-performance remote control vehicles for every terrain.</p>
+        </div>
+    </header>
+
+    <!-- Shop Content -->
+    <section class="shop-content container">
+        <!-- Sidebar Filters -->
+        <aside class="shop-sidebar">
+            <div class="filter-group">
+                <h3>Category</h3>
+                <ul>
+                    <li><label><input type="checkbox"> RC Cars (12)</label></li>
+                    <li><label><input type="checkbox"> Drones (8)</label></li>
+                    <li><label><input type="checkbox"> Boats (5)</label></li>
+                    <li><label><input type="checkbox"> Parts (24)</label></li>
+                </ul>
+            </div>
+
+            <div class="filter-group">
+                <h3>Price Range</h3>
+                <input type="range" class="price-slider" min="0" max="2000">
+                <div class="price-labels">
+                    <span>$0</span>
+                    <span>$2000+</span>
+                </div>
+            </div>
+
+            <div class="filter-group">
+                <h3>Brand</h3>
+                <ul>
+                    <li><label><input type="checkbox"> Traxxas</label></li>
+                    <li><label><input type="checkbox"> DJI</label></li>
+                    <li><label><input type="checkbox"> Arrma</label></li>
+                </ul>
+            </div>
+        </aside>
+
+        <!-- Product Grid -->
+        <main class="shop-grid">
+            <div class="shop-controls">
+                <div class="results-info">
+                    <span>Showing 1-12 of 156 results</span>
+                    <div class="view-toggle">
+                        <button class="view-btn active" data-view="grid">
+                            <i class="fa-solid fa-grip"></i>
+                        </button>
+                        <button class="view-btn" data-view="list">
+                            <i class="fa-solid fa-list"></i>
+                        </button>
+                    </div>
+                </div>
+                <select class="sort-select">
+                    <option>Sort by: Featured</option>
+                    <option>Price: Low to High</option>
+                    <option>Price: High to Low</option>
+                    <option>Newest First</option>
+                    <option>Best Rating</option>
+                    <option>Most Popular</option>
+                </select>
+            </div>
+
+            <div class="product-grid" id="productContainer">
+                <!-- Product 1 -->
+                <div class="product-card">
+                    <div class="product-badge hot">Hot Deal</div>
+                    <a href="product.html" class="product-img">
+                        <img src="https://images.unsplash.com/photo-1594787318286-3d835c1d207f?q=80&w=2070&auto=format&fit=crop"
+                            alt="Speedster X1">
+                        <div class="product-overlay">
+                            <button class="quick-view">
+                                <i class="fa-solid fa-eye"></i> Quick View
+                            </button>
+                        </div>
+                    </a>
+                    <div class="product-details">
+                        <div class="product-cat">Offroad Buggy</div>
+                        <h4><a href="product.html">Speedster X1 Pro</a></h4>
+                        <div class="rating">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star-half-alt"></i>
+                            <span>(4.8) 234 reviews</span>
+                        </div>
+                        <div class="price-row">
+                            <div class="price">
+                                <span class="current">$299.99</span>
+                                <span class="old-price">$399.99</span>
+                            </div>
+                            <button class="add-to-cart">
+                                <i class="fa-solid fa-cart-plus"></i>
+                            </button>
+                        </div>
+                        <div class="product-features">
+                            <span class="feature">Brushless Motor</span>
+                            <span class="feature">4WD</span>
+                            <span class="feature">Waterproof</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 2 -->
+                <div class="product-card">
+                    <div class="product-badge new">New</div>
+                    <a href="product.html" class="product-img">
+                        <img src="https://images.unsplash.com/photo-1517539001052-d9fc990e795f?q=80&w=2070&auto=format&fit=crop"
+                            alt="Drone Pro">
+                        <div class="product-overlay">
+                            <button class="quick-view">
+                                <i class="fa-solid fa-eye"></i> Quick View
+                            </button>
+                        </div>
+                    </a>
+                    <div class="product-details">
+                        <div class="product-cat">Camera Drone</div>
+                        <h4><a href="product.html">SkyVision Pro 4K</a></h4>
+                        <div class="rating">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <span>(5.0) 89 reviews</span>
+                        </div>
+                        <div class="price-row">
+                            <div class="price">
+                                <span class="current">$899.99</span>
+                            </div>
+                            <button class="add-to-cart">
+                                <i class="fa-solid fa-cart-plus"></i>
+                            </button>
+                        </div>
+                        <div class="product-features">
+                            <span class="feature">4K Camera</span>
+                            <span class="feature">30min Flight</span>
+                            <span class="feature">GPS</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 3 -->
+                <div class="product-card">
+                    <a href="product.html" class="product-img">
+                        <img src="https://images.unsplash.com/photo-1516397281156-ca07cf9746fc?q=80&w=2070&auto=format&fit=crop"
+                            alt="Speed Boat">
+                        <div class="product-overlay">
+                            <button class="quick-view">
+                                <i class="fa-solid fa-eye"></i> Quick View
+                            </button>
+                        </div>
+                    </a>
+                    <div class="product-details">
+                        <div class="product-cat">Racing Boat</div>
+                        <h4><a href="product.html">AquaRacer X2</a></h4>
+                        <div class="rating">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <span>(4.2) 156 reviews</span>
+                        </div>
+                        <div class="price-row">
+                            <div class="price">
+                                <span class="current">$449.99</span>
+                            </div>
+                            <button class="add-to-cart">
+                                <i class="fa-solid fa-cart-plus"></i>
+                            </button>
+                        </div>
+                        <div class="product-features">
+                            <span class="feature">35MPH</span>
+                            <span class="feature">Self-Righting</span>
+                            <span class="feature">2.4GHz</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 4 -->
+                <div class="product-card">
+                    <div class="product-badge sale">-25%</div>
+                    <a href="product.html" class="product-img">
+                        <img src="https://images.unsplash.com/photo-1577720643272-dfa8475c8fc3?q=80&w=2070&auto=format&fit=crop"
+                            alt="Airplane">
+                        <div class="product-overlay">
+                            <button class="quick-view">
+                                <i class="fa-solid fa-eye"></i> Quick View
+                            </button>
+                        </div>
+                    </a>
+                    <div class="product-details">
+                        <div class="product-cat">RC Airplane</div>
+                        <h4><a href="product.html">CloudSurfer 3D</a></h4>
+                        <div class="rating">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star-half-alt"></i>
+                            <span>(4.6) 78 reviews</span>
+                        </div>
+                        <div class="price-row">
+                            <div class="price">
+                                <span class="current">$224.99</span>
+                                <span class="old-price">$299.99</span>
+                            </div>
+                            <button class="add-to-cart">
+                                <i class="fa-solid fa-cart-plus"></i>
+                            </button>
+                        </div>
+                        <div class="product-features">
+                            <span class="feature">3D Aerobatics</span>
+                            <span class="feature">6CH Radio</span>
+                            <span class="feature">Brushless</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 5 -->
+                <div class="product-card">
+                    <a href="product.html" class="product-img">
+                        <img src="https://images.unsplash.com/photo-1618506469810-47c5c8cce6c2?q=80&w=2070&auto=format&fit=crop"
+                            alt="Monster Truck">
+                        <div class="product-overlay">
+                            <button class="quick-view">
+                                <i class="fa-solid fa-eye"></i> Quick View
+                            </button>
+                        </div>
+                    </a>
+                    <div class="product-details">
+                        <div class="product-cat">Monster Truck</div>
+                        <h4><a href="product.html">Crusher MT4</a></h4>
+                        <div class="rating">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <span>(4.3) 201 reviews</span>
+                        </div>
+                        <div class="price-row">
+                            <div class="price">
+                                <span class="current">$379.99</span>
+                            </div>
+                            <button class="add-to-cart">
+                                <i class="fa-solid fa-cart-plus"></i>
+                            </button>
+                        </div>
+                        <div class="product-features">
+                            <span class="feature">4x4</span>
+                            <span class="feature">Large Tires</span>
+                            <span class="feature">Metal Gears</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 6 -->
+                <div class="product-card">
+                    <div class="product-badge limited">Limited</div>
+                    <a href="product.html" class="product-img">
+                        <img src="https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?q=80&w=2070&auto=format&fit=crop"
+                            alt="Rock Crawler">
+                        <div class="product-overlay">
+                            <button class="quick-view">
+                                <i class="fa-solid fa-eye"></i> Quick View
+                            </button>
+                        </div>
+                    </a>
+                    <div class="product-details">
+                        <div class="product-cat">Rock Crawler</div>
+                        <h4><a href="product.html">TrailMaster Pro</a></h4>
+                        <div class="rating">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star-half-alt"></i>
+                            <span>(4.7) 143 reviews</span>
+                        </div>
+                        <div class="price-row">
+                            <div class="price">
+                                <span class="current">$529.99</span>
+                            </div>
+                            <button class="add-to-cart">
+                                <i class="fa-solid fa-cart-plus"></i>
+                            </button>
+                        </div>
+                        <div class="product-features">
+                            <span class="feature">Winch</span>
+                            <span class="feature">Lock Diffs</span>
+                            <span class="feature">LED Lights</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pagination -->
+            <div class="pagination">
+                <button class="page-btn disabled">
+                    <i class="fa-solid fa-chevron-left"></i>
+                </button>
+                <button class="page-btn active">1</button>
+                <button class="page-btn">2</button>
+                <button class="page-btn">3</button>
+                <span class="page-dots">...</span>
+                <button class="page-btn">13</button>
+                <button class="page-btn">
+                    <i class="fa-solid fa-chevron-right"></i>
+                </button>
+            </div>
+        </main>
+    </section>
+
+   <!-- Common Footer -->
+    <div id="footer-container"></div>
+
+    <!-- Scroll to Top Button -->
+    <button class="scroll-top" id="scrollTop" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
+
+    <!-- Common Scripts -->
+    <script src="components/common-scripts.js"></script>
+
+    <!-- Load Common Components -->
+    <script>
+        // Load header and footer components
+        fetch('components/header.html')
+            .then(response => response.text())
+            .then(html => document.getElementById('header-container').innerHTML = html);
+
+        fetch('components/footer.html')
+            .then(response => response.text())
+            .then(html => document.getElementById('footer-container').innerHTML = html);
+    </script>
+
+    <script>
+        // Mobile Menu Toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+
+        if (menuToggle && navLinks) {
+            menuToggle.addEventListener('click', () => {
+                menuToggle.classList.toggle('active');
+                navLinks.classList.toggle('active');
+            });
+
+            // Close menu when clicking a link
+            navLinks.querySelectorAll('a, button').forEach(item => {
+                item.addEventListener('click', () => {
+                    if (window.innerWidth <= 768) {
+                        menuToggle.classList.remove('active');
+                        navLinks.classList.remove('active');
+                    }
+                });
+            });
+        }
+
+        // Theme Toggle Functionality
+        const themeToggle = document.getElementById('themeToggle');
+        const sunIcon = document.getElementById('sunIcon');
+        const moonIcon = document.getElementById('moonIcon');
+        const html = document.documentElement;
+
+        // Check for saved theme preference or default to light mode
+        const currentTheme = localStorage.getItem('theme') || 'light';
+        html.setAttribute('data-theme', currentTheme);
+        updateThemeIcon(currentTheme);
+
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = html.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+
+            html.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            updateThemeIcon(newTheme);
+        });
+
+        function updateThemeIcon(theme) {
+            if (theme === 'dark') {
+                sunIcon.style.opacity = '0';
+                moonIcon.style.opacity = '1';
+            } else {
+                sunIcon.style.opacity = '1';
+                moonIcon.style.opacity = '0';
+            }
+        }
+
+        // Smooth Scroll Function
+        function scrollToSection(id) {
+            const element = document.getElementById(id);
+            if (element) {
+                const offset = 80;
+                const elementPosition = element.getBoundingClientRect().top;
+                const offsetPosition = elementPosition + window.pageYOffset - offset;
+
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
+                });
+            }
+        }
+        window.scrollToSection = scrollToSection;
+
+        // Filter Products Function
+        function filterProducts(category) {
+            scrollToSection('products');
+            // This function can be extended to filter products by category
+            // For now, it just scrolls to products section
+            console.log('Filtering by category:', category);
+        }
+        window.filterProducts = filterProducts;
+
+        // 3D Tilt Effect on Hero Panel
+        const heroPanel = document.getElementById('heroPanel');
+        const heroPanelInner = document.getElementById('heroPanelInner');
+
+        if (heroPanel && heroPanelInner) {
+            let isHovering = false;
+
+            heroPanel.addEventListener('mouseenter', () => {
+                isHovering = true;
+            });
+
+            heroPanel.addEventListener('mouseleave', () => {
+                isHovering = false;
+                heroPanelInner.style.transform = 'rotateX(0deg) rotateY(0deg)';
+            });
+
+            heroPanel.addEventListener('mousemove', (e) => {
+                if (!isHovering) return;
+
+                const rect = heroPanel.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+
+                const rotateX = (y - centerY) / 20;
+                const rotateY = (centerX - x) / 20;
+
+                heroPanelInner.style.transform = `perspective(1200px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+            });
+
+            // Mobile device orientation (optional)
+            if (window.DeviceOrientationEvent) {
+                window.addEventListener('deviceorientation', (e) => {
+                    if (!isHovering && window.innerWidth <= 968) {
+                        const beta = e.beta || 0;
+                        const gamma = e.gamma || 0;
+                        const rotateX = Math.max(Math.min(beta / 10, 10), -10);
+                        const rotateY = Math.max(Math.min(gamma / 10, 10), -10);
+                        heroPanelInner.style.transform = `perspective(1200px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+                    }
+                });
+            }
+        }
+
+        // Scroll Reveal Animation
+        const revealElements = document.querySelectorAll('.js-reveal');
+
+        // Make elements visible immediately
+        revealElements.forEach(element => {
+            element.classList.add('visible');
+        });
+
+        // Optional: Keep scroll reveal for future dynamic content
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    revealObserver.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        });
+
+        revealElements.forEach(element => {
+            revealObserver.observe(element);
+        });
+
+        // Scroll to Top Button
+        const scrollTopBtn = document.getElementById('scrollTop');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                scrollTopBtn.classList.add('visible');
+            } else {
+                scrollTopBtn.classList.remove('visible');
+            }
+        });
+
+        // Prevent default on anchor clicks for smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href !== '#' && href !== '#home') {
+                    e.preventDefault();
+                    const targetId = href.substring(1);
+                    scrollToSection(targetId);
+                }
+            });
+        });
+    </script>
+    <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Speedster X1 Buggy | RCSpeed</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/png" href="assets/favicon.png">
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,300;0,600;0,800;1,600&family=Inter:wght@300;400;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="components/common-styles.css">
+</head>
+
+<body>
+
+     <!-- Common Header -->
+    <div id="header-container"></div>
+
+    <!-- Product Layout -->
+    <section class="product-page container">
+        <div class="product-gallery">
+            <div class="main-image">
+                <img src="https://images.unsplash.com/photo-1594787318286-3d835c1d207f?q=80&w=2070&auto=format&fit=crop"
+                    alt="Speedster X1">
+            </div>
+            <div class="thumb-grid">
+                <img src="https://images.unsplash.com/photo-1594787318286-3d835c1d207f?q=80&w=2070&auto=format&fit=crop"
+                    class="active">
+                <img src="assets/cat_car.png">
+                <img src="assets/cat_drone.png"> <!-- Placeholder thumbs -->
+            </div>
+        </div>
+
+        <div class="product-info-col">
+            <div class="product-breadcrumb">Home / Shop / Offroad / Speedster X1</div>
+            <h1>Speedster X1 Buggy - Pro Edition</h1>
+            <div class="rating-large">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star-half-stroke"></i>
+                <span>(128 Reviews)</span>
+            </div>
+            <div class="product-price">
+                $299.00 <span>In Stock</span>
+            </div>
+            <p class="product-desc">
+                Dominate the dirt with the Speedster X1. Featuring a brushless motor, 4WD system, and waterproof
+                electronics, this beast is ready for any weather. The aluminum chassis ensures durability while keeping
+                weight low for maximum airtime.
+            </p>
+
+            <div class="product-actions">
+                <div class="qty-selector">
+                    <button>-</button>
+                    <input type="number" value="1">
+                    <button>+</button>
+                </div>
+                <button class="btn btn-primary add-to-cart-lg">Add to Cart</button>
+            </div>
+
+            <div class="product-specs">
+                <h3>Specifications</h3>
+                <ul>
+                    <li><strong>Scale:</strong> 1/10</li>
+                    <li><strong>Motor:</strong> 3500kV Brushless</li>
+                    <li><strong>Battery:</strong> 3S LiPo Compatible</li>
+                    <li><strong>Speed:</strong> 60+ MPH</li>
+                    <li><strong>Drive:</strong> 4WD Shaft Driven</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Common Footer -->
+    <div id="footer-container"></div>
+
+    <!-- Common Scripts -->
+    <script src="components/common-scripts.js"></script>
+
+    <!-- Load Common Components -->
+    <script>
+        // Load footer component
+        fetch('components/footer.html')
+            .then(response => response.text())
+            .then(html => document.getElementById('footer-container').innerHTML = html);
+    </script>
+
+    <button id="scrollToTop" class="scroll-to-top"><i class="fa-solid fa-arrow-up"></i></button>
+    <script src="script.js"></script>
+</body>
+
+</html>

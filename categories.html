@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Categories | Remote Control Hobby Shop</title>
+    <link rel="icon" type="image/png" href="assets/favicon.png">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="components/common-styles.css">
+    
+    <style>
+        /* ========== COLOR PALETTE ========== */
+        :root {
+            --color-bg: #f8fafc;
+            --color-light: #1e293b;
+            --color-primary: #0ea5e9;
+            --color-secondary: #0284c7;
+            --text-primary: #0f172a;
+            --text-secondary: #475569;
+            --border-color: #e2e8f0;
+            --card-bg: #ffffff;
+            --gradient-primary: linear-gradient(135deg, #0ea5e9, #3b82f6);
+            --gradient-secondary: linear-gradient(135deg, #f59e0b, #ef4444);
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        /* Dark Mode Variables */
+        [data-theme="dark"] {
+            --color-bg: #020617;
+            --color-light: #e5e7eb;
+            --color-primary: #22d3ee;
+            --color-secondary: #06b6d4;
+            --text-primary: #f9fafb;
+            --text-secondary: #9ca3af;
+            --border-color: #374151;
+            --card-bg: #111827;
+        }
+
+        /* ========== RESET & BASE ========== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--color-bg);
+            color: var(--text-primary);
+            line-height: 1.6;
+            transition: all 0.3s ease;
+            background-image: 
+                radial-gradient(circle at 20% 80%, rgba(14, 165, 233, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(59, 130, 246, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(16, 185, 129, 0.05) 0%, transparent 50%);
+        }
+
+        /* ========== NAVIGATION ========== */
+        .navbar {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-color);
+            box-shadow: var(--shadow-sm);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: 16px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transition: all 0.3s ease;
+        }
+
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 700;
+            font-size: 1.1rem;
+            letter-spacing: 0.05em;
+            color: var(--text-primary);
+        }
+
+        .nav-brand-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: var(--gradient-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            animation: pulseGlow 2s ease-in-out infinite;
+        }
+
+        @keyframes pulseGlow {
+            0%, 100% { box-shadow: 0 0 20px rgba(14, 165, 233, 0.6); }
+            50% { box-shadow: 0 0 30px rgba(14, 165, 233, 0.9); }
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            font-weight: 500;
+            transition: color 0.15s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--color-primary);
+        }
+
+        .theme-toggle-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .theme-toggle {
+            background: rgba(14, 165, 233, 0.1);
+            border: 1px solid rgba(14, 165, 233, 0.3);
+            border-radius: 50px;
+            padding: 8px 12px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.15s ease;
+            position: relative;
+            width: 60px;
+            height: 32px;
+        }
+
+        .theme-toggle i {
+            font-size: 14px;
+            transition: all 0.15s ease;
+            position: absolute;
+        }
+
+        #sunIcon {
+            left: 8px;
+            color: #fbbf24;
+        }
+
+        #moonIcon {
+            right: 8px;
+            color: #60a5fa;
+        }
+
+        /* ========== HERO SECTION ========== */
+        .hero {
+            padding: 80px 20px 60px;
+            text-align: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .hero-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 900;
+            margin-bottom: 20px;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            margin-bottom: 40px;
+        }
+
+        /* ========== CATEGORIES GRID ========== */
+        .categories-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px 80px;
+        }
+
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .category-card {
+            background: var(--card-bg);
+            border-radius: 16px;
+            padding: 40px 30px;
+            text-align: center;
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow-md);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .category-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gradient-primary);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .category-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .category-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .category-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 20px;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: white;
+            transition: transform 0.3s ease;
+        }
+
+        .category-card:hover .category-icon {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .category-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: var(--text-primary);
+        }
+
+        .category-description {
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .category-stats {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 25px;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--color-primary);
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        .category-btn {
+            background: var(--gradient-primary);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .category-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        /* ========== FOOTER ========== */
+        footer {
+            background: var(--card-bg);
+            border-top: 1px solid var(--border-color);
+            padding: 60px 20px 30px;
+            margin-top: 80px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h3 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 20px;
+        }
+
+        .footer-section p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-section ul li a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section ul li a:hover {
+            color: var(--color-primary);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .footer-copyright {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+        }
+
+        /* ========== RESPONSIVE ========== */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .categories-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .category-stats {
+                gap: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Common Header -->
+    <div id="header-container"></div>
+    
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1 class="hero-title">Explore Our Categories</h1>
+        <p class="hero-subtitle">Discover the perfect RC vehicle for your adventure</p>
+    </section>
+
+    <!-- Categories Grid -->
+    <div class="categories-container">
+        <div class="categories-grid">
+            <!-- RC Cars Category -->
+            <div class="category-card">
+                <div class="category-icon">
+                    <i class="fa-solid fa-car-side"></i>
+                </div>
+                <h2 class="category-title">RC Cars</h2>
+                <p class="category-description">High-performance remote control cars for racing, drifting, and off-road adventures. From beginner models to professional racing machines with brushless motors and advanced suspension systems.</p>
+                <div class="category-features">
+                    <span class="feature">Brushless Motors</span>
+                    <span class="feature">4WD Systems</span>
+                    <span class="feature">Oil Shocks</span>
+                    <span class="feature">Waterproof</span>
+                </div>
+                <div class="category-stats">
+                    <div class="stat">
+                        <span class="stat-number">250+</span>
+                        <span class="stat-label">Models</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">15+</span>
+                        <span class="stat-label">Brands</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">50MPH+</span>
+                        <span class="stat-label">Top Speed</span>
+                    </div>
+                </div>
+                <div class="subcategory-list">
+                    <span class="subcategory">Offroad Buggies</span>
+                    <span class="subcategory">Monster Trucks</span>
+                    <span class="subcategory">Drift Cars</span>
+                    <span class="subcategory">Rock Crawlers</span>
+                </div>
+                <button class="category-btn">
+                    <i class="fa-solid fa-arrow-right"></i>
+                    Explore Cars
+                </button>
+            </div>
+
+            <!-- RC Drones Category -->
+            <div class="category-card">
+                <div class="category-icon">
+                    <i class="fa-solid fa-helicopter"></i>
+                </div>
+                <h2 class="category-title">RC Drones</h2>
+                <p class="category-description">Professional and hobbyist drones with advanced camera systems, GPS navigation, and intelligent flight modes. Perfect for aerial photography, racing, and surveillance applications.</p>
+                <div class="category-features">
+                    <span class="feature">4K/8K Cameras</span>
+                    <span class="feature">GPS Navigation</span>
+                    <span class="feature">Obstacle Avoidance</span>
+                    <span class="feature">30+ Min Flight</span>
+                </div>
+                <div class="category-stats">
+                    <div class="stat">
+                        <span class="stat-number">180+</span>
+                        <span class="stat-label">Models</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">12+</span>
+                        <span class="stat-label">Brands</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">10KM+</span>
+                        <span class="stat-label">Range</span>
+                    </div>
+                </div>
+                <div class="subcategory-list">
+                    <span class="subcategory">Camera Drones</span>
+                    <span class="subcategory">FPV Racing</span>
+                    <span class="subcategory">Professional</span>
+                    <span class="subcategory">Toy Drones</span>
+                </div>
+                <button class="category-btn">
+                    <i class="fa-solid fa-arrow-right"></i>
+                    Explore Drones
+                </button>
+            </div>
+
+            <!-- RC Boats Category -->
+            <div class="category-card">
+                <div class="category-icon">
+                    <i class="fa-solid fa-ship"></i>
+                </div>
+                <h2 class="category-title">RC Boats</h2>
+                <p class="category-description">High-speed remote control boats for racing, leisure, and water sports. Featuring self-righting designs, waterproof electronics, and powerful brushless motors for thrilling performance on water.</p>
+                <div class="category-features">
+                    <span class="feature">Self-Righting</span>
+                    <span class="feature">Waterproof</span>
+                    <span class="feature">Brushless Motors</span>
+                    <span class="feature">2.4GHz Radio</span>
+                </div>
+                <div class="category-stats">
+                    <div class="stat">
+                        <span class="stat-number">120+</span>
+                        <span class="stat-label">Models</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">8+</span>
+                        <span class="stat-label">Brands</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">45MPH+</span>
+                        <span class="stat-label">Top Speed</span>
+                    </div>
+                </div>
+                <div class="subcategory-list">
+                    <span class="subcategory">Racing Boats</span>
+                    <span class="subcategory">Scale Models</span>
+                    <span class="subcategory">Sail Boats</span>
+                    <span class="subcategory">Submarines</span>
+                </div>
+                <button class="category-btn">
+                    <i class="fa-solid fa-arrow-right"></i>
+                    Explore Boats
+                </button>
+            </div>
+                </div>
+                <button class="category-btn">
+                    <i class="fa-solid fa-arrow-right"></i>
+                    Explore Drones
+                </button>
+            </div>
+
+            <!-- RC Boats Category -->
+            <div class="category-card">
+                <div class="category-icon">
+                    <i class="fa-solid fa-ship"></i>
+                </div>
+                <h2 class="category-title">RC Boats</h2>
+                <p class="category-description">High-speed RC boats for racing, sailing, and water sports. Waterproof electronics and self-righting designs for all conditions.</p>
+                <div class="category-stats">
+                    <div class="stat">
+                        <span class="stat-number">120+</span>
+                        <span class="stat-label">Models</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">8+</span>
+                        <span class="stat-label">Brands</span>
+                    </div>
+                </div>
+                <button class="category-btn">
+                    <i class="fa-solid fa-arrow-right"></i>
+                    Explore Boats
+                </button>
+            </div>
+
+            <!-- RC Airplanes Category -->
+            <div class="category-card">
+                <div class="category-icon">
+                    <i class="fa-solid fa-plane"></i>
+                </div>
+                <h2 class="category-title">RC Airplanes</h2>
+                <p class="category-description">From trainer planes to warbirds and jets. Easy-to-fly models for beginners and high-performance aircraft for experts.</p>
+                <div class="category-stats">
+                    <div class="stat">
+                        <span class="stat-number">150+</span>
+                        <span class="stat-label">Models</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">10+</span>
+                        <span class="stat-label">Brands</span>
+                    </div>
+                </div>
+                <button class="category-btn">
+                    <i class="fa-solid fa-arrow-right"></i>
+                    Explore Planes
+                </button>
+            </div>
+
+            <!-- Parts & Accessories Category -->
+            <div class="category-card">
+                <div class="category-icon">
+                    <i class="fa-solid fa-toolbox"></i>
+                </div>
+                <h2 class="category-title">Parts & Accessories</h2>
+                <p class="category-description">Complete range of spare parts, batteries, chargers, tools, and upgrades. Keep your RC vehicles running at peak performance.</p>
+                <div class="category-stats">
+                    <div class="stat">
+                        <span class="stat-number">2000+</span>
+                        <span class="stat-label">Items</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">50+</span>
+                        <span class="stat-label">Brands</span>
+                    </div>
+                </div>
+                <button class="category-btn">
+                    <i class="fa-solid fa-arrow-right"></i>
+                    Explore Parts
+                </button>
+            </div>
+
+            <!-- Beginner Kits Category -->
+            <div class="category-card">
+                <div class="category-icon">
+                    <i class="fa-solid fa-graduation-cap"></i>
+                </div>
+                <h2 class="category-title">Beginner Kits</h2>
+                <p class="category-description">All-inclusive starter kits with everything you need to begin your RC journey. Perfect for newcomers to the hobby.</p>
+                <div class="category-stats">
+                    <div class="stat">
+                        <span class="stat-number">50+</span>
+                        <span class="stat-label">Kits</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">5+</span>
+                        <span class="stat-label">Categories</span>
+                    </div>
+                </div>
+                <button class="category-btn">
+                    <i class="fa-solid fa-arrow-right"></i>
+                    Explore Kits
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Common Footer -->
+    <div id="footer-container"></div>
+
+    <!-- Common Scripts -->
+    <script src="components/common-scripts.js"></script>
+    <script>
+        // Load header and footer components
+        fetch('components/header.html')
+            .then(response => response.text())
+            .then(html => document.getElementById('header-container').innerHTML = html);
+
+        fetch('components/footer.html')
+            .then(response => response.text())
+            .then(html => document.getElementById('footer-container').innerHTML = html);
+    </script>
+    <!-- Load Common Components -->
+    <script>
+        // Load footer component
+        fetch('components/footer.html')
+            .then(response => response.text())
+            .then(html => document.getElementById('footer-container').innerHTML = html);
+    </script>
+
+    <button id="scrollToTop" class="scroll-to-top"><i class="fa-solid fa-arrow-up"></i></button>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,1614 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Remote Control Hobby Shop | RC Cars • Drones • Boats • Airplanes</title>
+    <link rel="icon" type="image/png" href="assets/favicon.png">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Inter:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="components/common-styles.css">
+
+    <style>
+        /* ========== COLOR PALETTE (ONLY 3 COLORS) ========== */
+        :root {
+            --color-bg: #f8fafc;
+            /* Light Background */
+            --color-primary: #0ea5e9;
+            /* Electric Cyan - Primary/Accent */
+            --color-light: #1e293b;
+            /* Dark Text - Text/Cards */
+            --color-secondary: #0284c7;
+            --text-primary: #0f172a;
+            --text-secondary: #475569;
+            --border-color: #e2e8f0;
+            --card-bg: #ffffff;
+            --gradient-primary: linear-gradient(135deg, #0ea5e9, #3b82f6);
+            --gradient-secondary: linear-gradient(135deg, #f59e0b, #ef4444);
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        /* Dark Mode Variables */
+        [data-theme="dark"] {
+            --color-bg: #020617;
+            --color-light: #e5e7eb;
+            --color-primary: #22d3ee;
+            --color-secondary: #06b6d4;
+            --text-primary: #f9fafb;
+            --text-secondary: #9ca3af;
+            --border-color: #374151;
+            --card-bg: #111827;
+        }
+
+        /* ========== RESET & BASE ========== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--color-bg);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+            min-height: 100vh;
+            transition: all 0.3s ease;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        /* ========== HERO SECTION ========== */
+        .hero {
+            background: var(--card-bg);
+            backdrop-filter: blur(20px);
+        }
+
+        /* Theme Toggle */
+        .theme-toggle-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .theme-toggle {
+            background: rgba(34, 211, 238, 0.1);
+            border: 1px solid rgba(34, 211, 238, 0.3);
+            border-radius: 50px;
+            padding: 8px 12px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.15s ease;
+            position: relative;
+            width: 60px;
+            height: 32px;
+        }
+
+        .theme-toggle i {
+            font-size: 14px;
+            transition: all 0.15s ease;
+            position: absolute;
+        }
+
+        #sunIcon {
+            left: 8px;
+            color: #fbbf24;
+            opacity: 1;
+        }
+
+        #moonIcon {
+            right: 8px;
+            color: #60a5fa;
+            opacity: 0;
+        }
+
+        [data-theme="dark"] #sunIcon {
+            opacity: 0;
+        }
+
+        [data-theme="dark"] #moonIcon {
+            opacity: 1;
+        }
+
+        .theme-toggle:hover {
+            background: rgba(34, 211, 238, 0.2);
+            border-color: var(--color-primary);
+        }
+
+        /* Base Styles */
+        body {
+            background: var(--color-bg);
+            color: var(--text-primary);
+            transition: all 0.3s ease;
+            background-image:
+                radial-gradient(circle at 20% 80%, rgba(14, 165, 233, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(59, 130, 246, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(16, 185, 129, 0.05) 0%, transparent 50%);
+        }
+        .navbar .dropdown-menu .active {
+            padding-left: 34px;
+        }
+        .nav-brand span {
+            color: var(--text-primary);
+            font-weight: 800;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: var(--color-primary);
+        }
+
+        .dropdown-menu {
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .dropdown-menu a {
+            color: var(--text-secondary);
+        }
+
+        .dropdown-menu a:hover {
+            background: rgba(14, 165, 233, 0.1);
+            color: var(--color-primary);
+        }
+
+        /* Enhanced Light Mode Hero */
+        .hero {
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .highlight-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(14, 165, 233, 0.05) 0%, transparent 70%);
+            transition: all 0.3s ease;
+        }
+
+        .highlight-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-xl);
+            border-color: var(--color-primary);
+        }
+
+        .highlight-card:hover::before {
+            top: -30%;
+            right: -30%;
+        }
+
+        .highlight-icon {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 20px;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: white;
+            position: relative;
+            z-index: 2;
+            transition: transform 0.3s ease;
+        }
+
+        .highlight-card:hover .highlight-icon {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .highlight-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 12px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .highlight-desc {
+            color: var(--text-secondary);
+            line-height: 1.6;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Enhanced Category Cards */
+        .category-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: var(--shadow-md);
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: block;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .category-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gradient-primary);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .category-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-xl);
+            border-color: var(--color-primary);
+        }
+
+        .category-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .category-icon {
+            width: 70px;
+            height: 70px;
+            margin: 0 auto 20px;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            color: white;
+            transition: transform 0.3s ease;
+        }
+
+        .category-card:hover .category-icon {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .category-name {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+        }
+
+        .category-count {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 16px;
+        }
+
+        .category-arrow {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(14, 165, 233, 0.1);
+            border-radius: 50%;
+            color: var(--color-primary);
+            transition: all 0.3s ease;
+        }
+
+        .category-card:hover .category-arrow {
+            background: var(--color-primary);
+            color: white;
+            transform: translateX(4px);
+        }
+
+        /* Enhanced Text Elements */
+        .section-tag {
+            display: inline-block;
+            padding: 6px 16px;
+            border-radius: 50px;
+            background: rgba(14, 165, 233, 0.1);
+            color: var(--color-primary);
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 16px;
+            border: 1px solid rgba(14, 165, 233, 0.2);
+        }
+
+        .section-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: var(--text-primary);
+            margin-bottom: 20px;
+            line-height: 1.2;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Dark mode will override these when active */
+
+        /* ========== HERO SECTION ========== */
+        .hero {
+            position: relative;
+            padding: 60px 20px 80px;
+            background: var(--color-bg);
+            transition: background-color 0.3s ease;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+            min-height: 85vh;
+        }
+
+        .hero-content {
+            animation: fadeInUp 1s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-tag {
+            display: inline-block;
+            padding: 6px 14px;
+            border-radius: 999px;
+            background: rgba(14, 165, 233, 0.1);
+            border: 1px solid rgba(14, 165, 233, 0.3);
+            color: var(--color-primary);
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 20px;
+            animation: slideInLeft 0.8s ease-out;
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .hero-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: clamp(2.5rem, 5vw, 4.5rem);
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: fadeInUp 1s ease-out 0.2s both;
+            text-shadow: 0 0 40px rgba(14, 165, 233, 0.3);
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1rem, 2vw, 1.2rem);
+            color: var(--text-secondary);
+            margin-bottom: 12px;
+            animation: fadeInUp 1s ease-out 0.4s both;
+        }
+
+        .hero-tags {
+            font-size: clamp(0.9rem, 1.5vw, 1.1rem);
+            color: var(--color-primary);
+            font-weight: 600;
+            margin-bottom: 30px;
+            animation: fadeInUp 1s ease-out 0.6s both;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+            animation: fadeInUp 1s ease-out 0.8s both;
+        }
+
+        .btn {
+            padding: 14px 28px;
+            border-radius: 999px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: all 0.15s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            border: none;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .btn-primary {
+            background: var(--gradient-primary);
+            color: white;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .btn-secondary {
+            background: var(--card-bg);
+            color: var(--text-primary);
+            border: 2px solid var(--border-color);
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn-secondary:hover {
+            background: var(--color-bg);
+            border-color: var(--color-primary);
+            color: var(--color-primary);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        /* 3D Hero Panel */
+        .hero-panel {
+            position: relative;
+            perspective: 1200px;
+            animation: fadeInRight 1s ease-out 0.3s both;
+        }
+
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .hero-panel-inner {
+            position: relative;
+            border-radius: 24px;
+            padding: 24px;
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow-xl);
+            transform-style: preserve-3d;
+            transition: transform 0.1s ease-out;
+        }
+
+        .hero-panel-glow {
+            position: absolute;
+            top: -20%;
+            left: -20%;
+            width: 140%;
+            height: 140%;
+            background: radial-gradient(circle, rgba(14, 165, 233, 0.1), transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+            animation: rotateGlow 8s linear infinite;
+        }
+
+        @keyframes rotateGlow {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .hero-status {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 12px;
+            border-radius: 999px;
+            background: rgba(14, 165, 233, 0.1);
+            border: 1px solid rgba(14, 165, 233, 0.3);
+            font-size: 0.8rem;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 2;
+            color: var(--color-primary);
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--color-primary);
+            box-shadow: 0 0 10px rgba(14, 165, 233, 0.8);
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+
+            50% {
+                opacity: 0.7;
+                transform: scale(1.2);
+            }
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-card {
+            border-radius: 16px;
+            overflow: hidden;
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow-md);
+            transition: all 0.15s ease;
+            position: relative;
+        }
+
+        .hero-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--color-primary);
+        }
+
+        .hero-card img {
+            width: 100%;
+            height: 140px;
+            object-fit: cover;
+            transition: transform 0.15s ease;
+        }
+
+        .hero-card:hover img {
+            transform: scale(1.05);
+        }
+
+        .hero-card-content {
+            padding: 12px;
+        }
+
+        .hero-card-title {
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 4px;
+            color: var(--text-primary);
+        }
+
+        .hero-card-sub {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            margin-bottom: 8px;
+        }
+
+        .hero-card-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        .hero-card-tags span {
+            font-size: 0.65rem;
+            padding: 3px 8px;
+            border-radius: 999px;
+            background: rgba(14, 165, 233, 0.1);
+            border: 1px solid rgba(14, 165, 233, 0.3);
+            color: var(--color-primary);
+        }
+
+        /* Mobile Hero */
+        @media (max-width: 968px) {
+            .hero {
+                grid-template-columns: 1fr;
+                gap: 40px;
+                padding: 40px 20px 60px;
+            }
+
+            .hero-panel {
+                order: -1;
+            }
+        }
+
+        /* ========== HIGHLIGHT CARDS ========== */
+        .highlights-section {
+            padding: 80px 20px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
+
+        .section-header::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: var(--gradient-primary);
+            border-radius: 2px;
+        }
+
+        .section-tag {
+            display: inline-block;
+            padding: 6px 14px;
+            border-radius: 999px;
+            background: rgba(14, 165, 233, 0.1);
+            border: 1px solid rgba(14, 165, 233, 0.3);
+            color: var(--color-primary);
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 16px;
+        }
+
+        .section-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            margin-bottom: 12px;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .highlights-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .highlight-card {
+            position: relative;
+            padding: 32px;
+            border-radius: 20px;
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow-lg);
+            transition: all 0.4s ease;
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .highlight-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .highlight-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-xl);
+            border-color: var(--color-primary);
+        }
+
+        .highlight-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: var(--gradient-primary);
+            border: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: white;
+            margin-bottom: 20px;
+            box-shadow: var(--shadow-md);
+            position: relative;
+            z-index: 2;
+            transition: transform 0.3s ease;
+        }
+
+        .highlight-card:hover .highlight-icon {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .highlight-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: var(--text-primary);
+            position: relative;
+            z-index: 2;
+        }
+
+        .highlight-desc {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            position: relative;
+            z-index: 2;
+        }
+
+        .highlight-accent {
+            width: 40px;
+            height: 3px;
+            background: var(--gradient-primary);
+            border-radius: 2px;
+            margin: 16px auto;
+        }
+
+        @media (max-width: 968px) {
+            .highlights-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 640px) {
+            .highlights-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .highlights-section {
+                padding: 60px 20px;
+            }
+        }
+
+        /* ========== CATEGORIES SECTION ========== */
+        .categories-section {
+            padding: 80px 20px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 24px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .category-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 30px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            text-decoration: none;
+            color: inherit;
+            box-shadow: var(--shadow-md);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .category-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at center, rgba(14, 165, 233, 0.1), transparent 70%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .category-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-xl);
+            border-color: var(--color-primary);
+        }
+
+        .category-card:hover::before {
+            opacity: 1;
+        }
+
+        .category-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 20px;
+            background: var(--gradient-primary);
+            border: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            color: white;
+            margin-bottom: 20px;
+            transition: all 0.4s ease;
+            position: relative;
+            z-index: 2;
+            box-shadow: var(--shadow-md);
+        }
+
+        .category-card:hover .category-icon {
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .category-name {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+        }
+
+        .category-count {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 16px;
+        }
+
+        .category-card:hover .category-name {
+            color: var(--color-primary);
+        }
+
+        .category-arrow {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: rgba(14, 165, 233, 0.1);
+            border: 1px solid rgba(14, 165, 233, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--color-primary);
+            font-size: 0.9rem;
+            opacity: 0;
+            transform: translateX(-10px);
+            transition: all 0.4s ease;
+            z-index: 2;
+        }
+
+        .category-card:hover .category-arrow {
+            opacity: 1;
+            transform: translateX(0);
+            background: rgba(14, 165, 233, 0.2);
+        }
+
+        @media (max-width: 968px) {
+            .categories-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .categories-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 16px;
+            }
+
+            .category-icon {
+                width: 70px;
+                height: 70px;
+                font-size: 2rem;
+            }
+
+            .category-name {
+                font-size: 1.2rem;
+            }
+
+            .category-card {
+                padding: 24px 16px;
+            }
+        }
+
+        /* ========== FOOTER WITH 4 SECTIONS ========== */
+        footer {
+            padding: 60px 20px 30px;
+            background: var(--card-bg);
+            border-top: 1px solid var(--border-color);
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h3 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .footer-section p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            line-height: 1.6;
+            margin-bottom: 16px;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-section ul li a {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            transition: color 0.15s ease;
+        }
+
+        .footer-section ul li a:hover {
+            color: var(--color-primary);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 12px;
+            margin-top: 16px;
+        }
+
+        .social-links a {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: rgba(14, 165, 233, 0.1);
+            border: 1px solid rgba(14, 165, 233, 0.3);
+            color: var(--color-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+            transition: all 0.15s ease;
+        }
+
+        .social-links a:hover {
+            background: rgba(14, 165, 233, 0.2);
+            border-color: var(--color-primary);
+            transform: translateY(-2px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .footer-copyright {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+        }
+
+        @media (max-width: 968px) {
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 30px;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+        }
+
+        /* ========== SCROLL TO TOP BUTTON ========== */
+        .scroll-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: rgba(34, 211, 238, 0.2);
+            border: 1px solid rgba(34, 211, 238, 0.5);
+            color: var(--color-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            pointer-events: none;
+            transition: all 0.15s ease;
+            z-index: 999;
+            box-shadow: 0 0 20px rgba(34, 211, 238, 0.3);
+        }
+
+        .scroll-top.visible {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .scroll-top:hover {
+            background: var(--color-primary);
+            color: var(--color-bg);
+            transform: translateY(-5px);
+            box-shadow: 0 0 30px rgba(34, 211, 238, 0.6);
+        }
+
+        @media (max-width: 768px) {
+            .scroll-top {
+                bottom: 20px;
+                right: 20px;
+                width: 45px;
+                height: 45px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Common Header -->
+    <div id="header-container"></div>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <span class="hero-tag">Direct Selling & Clarity</span>
+            <h1 class="hero-title">Remote Control<br>Hobby Shop</h1>
+            <p class="hero-subtitle">Premium RC gear for enthusiasts who demand precision and performance.</p>
+            <p class="hero-tags">RC Cars • Drones • Boats • Airplanes</p>
+            <div class="hero-buttons">
+                <button class="btn btn-primary" onclick="scrollToSection('categories')">
+                    <i class="fa-solid fa-shopping-bag"></i> Shop Categories
+                </button>
+                <button class="btn btn-secondary" onclick="scrollToSection('new-arrivals')">
+                    <i class="fa-solid fa-star"></i> New Arrivals
+                </button>
+            </div>
+        </div>
+
+        <!-- 3D Hero Panel -->
+        <div class="hero-panel" id="heroPanel">
+            <div class="hero-panel-glow"></div>
+            <div class="hero-panel-inner" id="heroPanelInner">
+                <div class="hero-status">
+                    <span class="status-dot"></span>
+                    <span>Live Stock - Ships in 24 Hours</span>
+                </div>
+                <div class="hero-grid">
+                    <div class="hero-card">
+                        <img src="https://www.rcsuperstore.com/product_images/uploaded_images/traxxas-toyota-supra-gt4-rc-drift-car.png"
+                            alt="RC Drift Car">
+                        <div class="hero-card-content">
+                            <div class="hero-card-title">Brushless RC Drift Car</div>
+                            <div class="hero-card-sub">60+ km/h • Ready-to-run</div>
+                            <div class="hero-card-tags">
+                                <span>Fast Shipping</span>
+                                <span>Genuine Parts</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hero-card">
+                        <img src="https://tse1.mm.bing.net/th/id/OIP.cdRrp-Wig_nVLRHmlAC8DgHaE8?pid=Api&P=0&h=180"
+                            alt="Camera Drone">
+                        <div class="hero-card-content">
+                            <div class="hero-card-title">Stabilized Camera Drone</div>
+                            <div class="hero-card-sub">GPS hold • Auto return</div>
+                            <div class="hero-card-tags">
+                                <span>Beginner Friendly</span>
+                                <span>Safe Flight</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hero-card">
+                        <img src="https://images.unsplash.com/photo-1516397281156-ca07cf9746fc?auto=format&fit=crop&w=600&q=80"
+                            alt="RC Speed Boat">
+                        <div class="hero-card-content">
+                            <div class="hero-card-title">High-Speed RC Boat</div>
+                            <div class="hero-card-sub">Water-cooled • Self-righting</div>
+                            <div class="hero-card-tags">
+                                <span>Waterproof</span>
+                                <span>Ready to Run</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hero-card">
+                        <img src="https://i.ytimg.com/vi/x8KGd-SulaU/maxresdefault.jpg" alt="RC Airplane">
+                        <div class="hero-card-content">
+                            <div class="hero-card-title">Trainer RC Airplane</div>
+                            <div class="hero-card-sub">Foam airframe • Park friendly</div>
+                            <div class="hero-card-tags">
+                                <span>Beginner Pilot</span>
+                                <span>Crash Resistant</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Highlights Section -->
+    <section class="highlights-section" id="highlights">
+        <div class="section-header">
+            <span class="section-tag">Why Choose Us</span>
+            <h2 class="section-title">What Makes Us Different</h2>
+        </div>
+        <div class="highlights-grid">
+            <div class="highlight-card js-reveal">
+                <div class="highlight-icon">
+                    <i class="fa-solid fa-truck-fast"></i>
+                </div>
+                <div class="highlight-accent"></div>
+                <h3 class="highlight-title">Lightning Fast Shipping</h3>
+                <p class="highlight-desc">Orders ship from our local warehouse within 24 hours with tracking and express delivery. Get your RC gear in your hands faster so you can start driving or flying sooner. Free shipping on orders over $100.</p>
+            </div>
+            <div class="highlight-card js-reveal">
+                <div class="highlight-icon">
+                    <i class="fa-solid fa-shield-halved"></i>
+                </div>
+                <div class="highlight-accent"></div>
+                <h3 class="highlight-title">100% Genuine Parts</h3>
+                <p class="highlight-desc">Only original brands and manufacturer-approved spares. No mystery parts, no guessing if something will fit your model. Every component is tested for quality and compatibility with full warranty support.</p>
+            </div>
+            <div class="highlight-card js-reveal">
+                <div class="highlight-icon">
+                    <i class="fa-solid fa-graduation-cap"></i>
+                </div>
+                <div class="highlight-accent"></div>
+                <h3 class="highlight-title">Expert Support Team</h3>
+                <p class="highlight-desc">Real RC enthusiasts on staff ready to help you choose the perfect gear, troubleshoot issues, and optimize performance. Get personalized advice from people who actually use the products they sell.</p>
+            </div>
+            <div class="highlight-card js-reveal">
+                <div class="highlight-icon">
+                    <i class="fa-solid fa-dollar-sign"></i>
+                </div>
+                <div class="highlight-accent"></div>
+                <h3 class="highlight-title">Best Price Guarantee</h3>
+                <p class="highlight-desc">Find a lower price elsewhere? We'll match it and give you an additional 10% off. Plus, enjoy flexible payment options, seasonal sales, and exclusive member discounts on premium RC equipment.</p>
+            </div>
+            <div class="highlight-card js-reveal">
+                <div class="highlight-icon">
+                    <i class="fa-solid fa-tools"></i>
+                </div>
+                <div class="highlight-accent"></div>
+                <h3 class="highlight-title">Free Setup & Testing</h3>
+                <p class="highlight-desc">Every RC vehicle is professionally assembled, tested, and tuned before shipping. Includes battery charging, radio binding, and performance optimization. Ready-to-run right out of the box!</p>
+            </div>
+            <div class="highlight-card js-reveal">
+                <div class="highlight-icon">
+                    <i class="fa-solid fa-award"></i>
+                </div>
+                <div class="highlight-accent"></div>
+                <h3 class="highlight-title">5-Year Warranty</h3>
+                <p class="highlight-desc">Industry-leading warranty coverage on all products. Free repairs, replacements, and technical support for 5 full years. We stand behind every product we sell with confidence and pride.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section class="categories-section" id="categories">
+        <div class="section-header">
+            <span class="section-tag">Shop by Category</span>
+            <h2 class="section-title">Explore Our Collection</h2>
+        </div>
+        <div class="categories-grid">
+            <a href="#products" class="category-card" onclick="filterProducts('cars'); return false;">
+                <div class="category-icon">
+                    <i class="fa-solid fa-car"></i>
+                </div>
+                <h3 class="category-name">RC Cars</h3>
+                <p class="category-count">Drift • Offroad • On-road</p>
+                <div class="category-arrow">
+                    <i class="fa-solid fa-arrow-right"></i>
+                </div>
+            </a>
+            <a href="#products" class="category-card" onclick="filterProducts('drones'); return false;">
+                <div class="category-icon">
+                    <i class="fa-solid fa-helicopter"></i>
+                </div>
+                <h3 class="category-name">RC Drones</h3>
+                <p class="category-count">FPV • Camera • Racing</p>
+                <div class="category-arrow">
+                    <i class="fa-solid fa-arrow-right"></i>
+                </div>
+            </a>
+            <a href="#products" class="category-card" onclick="filterProducts('boats'); return false;">
+                <div class="category-icon">
+                    <i class="fa-solid fa-ship"></i>
+                </div>
+                <h3 class="category-name">RC Boats</h3>
+                <p class="category-count">Speed • Scale • Racing</p>
+                <div class="category-arrow">
+                    <i class="fa-solid fa-arrow-right"></i>
+                </div>
+            </a>
+            <a href="#products" class="category-card" onclick="filterProducts('airplanes'); return false;">
+                <div class="category-icon">
+                    <i class="fa-solid fa-plane"></i>
+                </div>
+                <h3 class="category-name">RC Airplanes</h3>
+                <p class="category-count">Trainer • Warbird • Glider</p>
+                <div class="category-arrow">
+                    <i class="fa-solid fa-arrow-right"></i>
+                </div>
+            </a>
+
+        </div>
+    </section>
+
+    <!-- New Section 1: Testimonials -->
+    <section class="highlights-section" id="testimonials">
+        <div class="section-header">
+            <span class="section-tag">Customer Stories</span>
+            <h2 class="section-title">What Our Customers Say</h2>
+        </div>
+        <div class="highlights-grid">
+            <div class="highlight-card js-reveal">
+                <div class="highlight-icon">
+                    <i class="fa-solid fa-star"></i>
+                </div>
+                <div class="highlight-accent"></div>
+                <h3 class="highlight-title">Outstanding Quality & Service!</h3>
+                <p class="highlight-desc">"I purchased the Traxxas Toyota Supra drift car and I'm absolutely blown away! The attention to detail is incredible, it arrived perfectly tuned, and the customer service team helped me with setup questions. This is my fifth RC car and by far the best buying experience I've had. Highly recommend!"</p>
+                <p style="color: var(--color-primary); font-size: 0.9rem; margin-top: 12px;">- Alex Johnson, Professional RC Drifter</p>
+            </div>
+            <div class="highlight-card js-reveal">
+                <div class="highlight-icon">
+                    <i class="fa-solid fa-heart"></i>
+                </div>
+                <div class="highlight-accent"></div>
+                <h3 class="highlight-title">Perfect Beginner Experience</h3>
+                <p class="highlight-desc">"As a complete beginner to RC hobbies, I was nervous about getting started. The team walked me through everything, helped me choose the perfect starter kit, and even provided video tutorials. Two months in and I'm already comfortable flying my drone. Couldn't have asked for better support!"</p>
+                <p style="color: var(--color-primary); font-size: 0.9rem; margin-top: 12px;">- Sarah Chen, Photography Enthusiast</p>
+            </div>
+            <div class="highlight-card js-reveal">
+                <div class="highlight-icon">
+                    <i class="fa-solid fa-trophy"></i>
+                </div>
+                <div class="highlight-accent"></div>
+                <h3 class="highlight-title">Competition-Grade Equipment</h3>
+                <p class="highlight-desc">"I compete in national RC racing events and need equipment that performs under pressure. RCSpeed has been my go-to for three years now. Their parts are genuine, their tuning service is spot-on, and their overnight shipping has saved me multiple times before races. This is the real deal for serious racers."</p>
+                <p style="color: var(--color-primary); font-size: 0.9rem; margin-top: 12px;">- Mike Rodriguez, National RC Champion</p>
+            </div>
+            <div class="highlight-card js-reveal">
+                <div class="highlight-icon">
+                    <i class="fa-solid fa-rocket"></i>
+                </div>
+                <div class="highlight-accent"></div>
+                <h3 class="highlight-title">Beyond Expectations</h3>
+                <p class="highlight-desc">"I bought an RC boat for my son's birthday and ended up getting hooked myself! The quality is amazing, the prices are fair, and the community they've built is incredible. We now go to local RC events together - it's become our father-son bonding activity. Thank you RCSpeed!"</p>
+                <p style="color: var(--color-primary); font-size: 0.9rem; margin-top: 12px;">- David Thompson, RC Hobbyist</p>
+            </div>
+            <div class="highlight-card js-reveal">
+                <div class="highlight-icon">
+                    <i class="fa-solid fa-camera"></i>
+                </div>
+                <div class="highlight-accent"></div>
+                <h3 class="highlight-title">Professional Photography Drone</h3>
+                <p class="highlight-desc">"As a professional photographer, I need reliable equipment for aerial shots. The DJI drone I purchased came with professional calibration and the team even helped me with camera settings. The image quality is stunning and it's held up through hundreds of flights. Best investment for my business!"</p>
+                <p style="color: var(--color-primary); font-size: 0.9rem; margin-top: 12px;">- Emily Rodriguez, Wedding Photographer</p>
+            </div>
+            <div class="highlight-card js-reveal">
+                <div class="highlight-icon">
+                    <i class="fa-solid fa-graduation-cap"></i>
+                </div>
+                <div class="highlight-accent"></div>
+                <h3 class="highlight-title">Learning Made Easy</h3>
+                <p class="highlight-desc">"I'm 14 and just getting into RC airplanes. The beginner package I got was perfect - everything worked right out of the box and the instruction videos were super helpful. I crashed once and their support team helped me repair it for free. Now I can fly loops and rolls! This hobby is awesome!"</p>
+                <p style="color: var(--color-primary); font-size: 0.9rem; margin-top: 12px;">- Jake Williams, Student Pilot</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- New Section 2: Featured Products -->
+    <section class="categories-section" id="featured-products">
+        <div class="section-header">
+            <span class="section-tag">Special Offers</span>
+            <h2 class="section-title">Featured Deals</h2>
+        </div>
+        <div class="categories-grid">
+            <a href="#" class="category-card">
+                <div class="category-icon">
+                    <i class="fa-solid fa-fire"></i>
+                </div>
+                <h3 class="category-name">Hot Deal</h3>
+                <p class="category-count">Save 30% Today</p>
+                <div class="category-arrow">
+                    <i class="fa-solid fa-arrow-right"></i>
+                </div>
+            </a>
+            <a href="#" class="category-card">
+                <div class="category-icon">
+                    <i class="fa-solid fa-crown"></i>
+                </div>
+                <h3 class="category-name">Premium</h3>
+                <p class="category-count">Top Rated</p>
+                <div class="category-arrow">
+                    <i class="fa-solid fa-arrow-right"></i>
+                </div>
+            </a>
+            <a href="#" class="category-card">
+                <div class="category-icon">
+                    <i class="fa-solid fa-gift"></i>
+                </div>
+                <h3 class="category-name">Gift Sets</h3>
+                <p class="category-count">Perfect Presents</p>
+                <div class="category-arrow">
+                    <i class="fa-solid fa-arrow-right"></i>
+                </div>
+            </a>
+            <a href="#" class="category-card">
+                <div class="category-icon">
+                    <i class="fa-solid fa-bolt"></i>
+                </div>
+                <h3 class="category-name">New Arrivals</h3>
+                <p class="category-count">Just In Stock</p>
+                <div class="category-arrow">
+                    <i class="fa-solid fa-arrow-right"></i>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <!-- Common Footer -->
+    <div id="footer-container"></div>
+
+    <!-- Scroll to Top Button -->
+    <button class="scroll-top" id="scrollTop" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
+
+    <!-- Common Scripts -->
+    <script src="components/common-scripts.js"></script>
+
+    <!-- Load Common Components -->
+    <script>
+        // Load header and footer components
+        fetch('components/header.html')
+            .then(response => response.text())
+            .then(html => document.getElementById('header-container').innerHTML = html);
+
+        fetch('components/footer.html')
+            .then(response => response.text())
+            .then(html => document.getElementById('footer-container').innerHTML = html);
+    </script>
+
+    <script>
+        // Mobile Menu Toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+
+        if (menuToggle && navLinks) {
+            menuToggle.addEventListener('click', () => {
+                menuToggle.classList.toggle('active');
+                navLinks.classList.toggle('active');
+            });
+
+            // Close menu when clicking a link
+            navLinks.querySelectorAll('a, button').forEach(item => {
+                item.addEventListener('click', () => {
+                    if (window.innerWidth <= 768) {
+                        menuToggle.classList.remove('active');
+                        navLinks.classList.remove('active');
+                    }
+                });
+            });
+        }
+
+        // Theme Toggle Functionality
+        const themeToggle = document.getElementById('themeToggle');
+        const sunIcon = document.getElementById('sunIcon');
+        const moonIcon = document.getElementById('moonIcon');
+        const html = document.documentElement;
+
+        // Check for saved theme preference or default to light mode
+        const currentTheme = localStorage.getItem('theme') || 'light';
+        html.setAttribute('data-theme', currentTheme);
+        updateThemeIcon(currentTheme);
+
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = html.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+
+            html.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            updateThemeIcon(newTheme);
+        });
+
+        function updateThemeIcon(theme) {
+            if (theme === 'dark') {
+                sunIcon.style.opacity = '0';
+                moonIcon.style.opacity = '1';
+            } else {
+                sunIcon.style.opacity = '1';
+                moonIcon.style.opacity = '0';
+            }
+        }
+
+        // Smooth Scroll Function
+        function scrollToSection(id) {
+            const element = document.getElementById(id);
+            if (element) {
+                const offset = 80;
+                const elementPosition = element.getBoundingClientRect().top;
+                const offsetPosition = elementPosition + window.pageYOffset - offset;
+
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
+                });
+            }
+        }
+        window.scrollToSection = scrollToSection;
+
+        // Filter Products Function
+        function filterProducts(category) {
+            scrollToSection('products');
+            // This function can be extended to filter products by category
+            // For now, it just scrolls to products section
+            console.log('Filtering by category:', category);
+        }
+        window.filterProducts = filterProducts;
+
+        // 3D Tilt Effect on Hero Panel
+        const heroPanel = document.getElementById('heroPanel');
+        const heroPanelInner = document.getElementById('heroPanelInner');
+
+        if (heroPanel && heroPanelInner) {
+            let isHovering = false;
+
+            heroPanel.addEventListener('mouseenter', () => {
+                isHovering = true;
+            });
+
+            heroPanel.addEventListener('mouseleave', () => {
+                isHovering = false;
+                heroPanelInner.style.transform = 'rotateX(0deg) rotateY(0deg)';
+            });
+
+            heroPanel.addEventListener('mousemove', (e) => {
+                if (!isHovering) return;
+
+                const rect = heroPanel.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+
+                const rotateX = (y - centerY) / 20;
+                const rotateY = (centerX - x) / 20;
+
+                heroPanelInner.style.transform = `perspective(1200px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+            });
+
+            // Mobile device orientation (optional)
+            if (window.DeviceOrientationEvent) {
+                window.addEventListener('deviceorientation', (e) => {
+                    if (!isHovering && window.innerWidth <= 968) {
+                        const beta = e.beta || 0;
+                        const gamma = e.gamma || 0;
+                        const rotateX = Math.max(Math.min(beta / 10, 10), -10);
+                        const rotateY = Math.max(Math.min(gamma / 10, 10), -10);
+                        heroPanelInner.style.transform = `perspective(1200px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+                    }
+                });
+            }
+        }
+
+        // Scroll Reveal Animation
+        const revealElements = document.querySelectorAll('.js-reveal');
+
+        // Make elements visible immediately
+        revealElements.forEach(element => {
+            element.classList.add('visible');
+        });
+
+        // Optional: Keep scroll reveal for future dynamic content
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    revealObserver.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        });
+
+        revealElements.forEach(element => {
+            revealObserver.observe(element);
+        });
+
+        // Scroll to Top Button
+        const scrollTopBtn = document.getElementById('scrollTop');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                scrollTopBtn.classList.add('visible');
+            } else {
+                scrollTopBtn.classList.remove('visible');
+            }
+        });
+
+        // Prevent default on anchor clicks for smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href !== '#' && href !== '#home') {
+                    e.preventDefault();
+                    const targetId = href.substring(1);
+                    scrollToSection(targetId);
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
