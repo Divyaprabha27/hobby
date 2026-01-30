@@ -127,11 +127,32 @@ img {
     font-size: 1.1rem;
     letter-spacing: 0.05em;
     color: var(--text-primary);
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.nav-brand:hover {
+    color: var(--color-primary);
 }
 
 .nav-brand i {
     font-size: 1.2rem;
     color: var(--color-primary);
+}
+
+/* Footer Brand Styling */
+.footer-brand {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    display: inline-flex;
+}
+
+.footer-brand:hover {
+    transform: translateY(-2px);
+}
+
+.footer-brand:hover i {
+    color: var(--color-secondary);
 }
 
 /* Dark mode nav-brand visibility */
