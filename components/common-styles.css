@@ -459,6 +459,41 @@ img {
     color: var(--text-primary);
 }
 
+/* Tablet Menu Toggle - Show hamburger for 1024px to 800px */
+@media (max-width: 1024px) {
+    .menu-toggle {
+        display: flex;
+    }
+    
+    .nav-links {
+        display: none;
+    }
+    
+    .nav-links.active {
+        display: flex;
+        position: fixed;
+        top: 73px;
+        left: 0;
+        right: 0;
+        background: var(--card-bg);
+        flex-direction: column;
+        padding: 20px;
+        gap: 20px;
+        box-shadow: var(--shadow-lg);
+        z-index: 1000;
+        transform: translateY(-10px);
+        opacity: 0;
+        pointer-events: none;
+        transition: all 0.15s ease;
+    }
+    
+    .nav-links.active {
+        transform: translateY(0);
+        opacity: 1;
+        pointer-events: all;
+    }
+}
+
 /* Mobile Menu Styles */
 @media (max-width: 768px) {
     .menu-toggle {
@@ -775,11 +810,11 @@ img {
     
     .shop-sidebar {
         width: 100%;
-        order: 2;
+        order: 1;
     }
     
     .shop-grid {
-        order: 1;
+        order: 2;
     }
     
     .shop-controls {
