@@ -35,20 +35,7 @@ window.addEventListener('scroll', () => {
     if (navbar) {
         navbar.classList.toggle('scrolled', window.scrollY > 50);
     }
-
-    const scrollToTop = document.getElementById('scrollToTop');
-    if (scrollToTop) {
-        scrollToTop.classList.toggle('active', window.scrollY > 500);
-    }
 });
-
-// Scroll to Top
-const scrollToTopBtn = document.getElementById('scrollToTop');
-if (scrollToTopBtn) {
-    scrollToTopBtn.addEventListener('click', () => {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-}
 
 // Mobile Menu
 const hamburger = document.querySelector('.hamburger');

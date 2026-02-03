@@ -87,7 +87,7 @@ function scrollToTop() {
 
 // Show/Hide Scroll to Top Button
 function handleScrollToTop() {
-    const scrollTop = document.querySelector('.scroll-top');
+    const scrollTop = document.getElementById('scrollTop');
     if (scrollTop) {
         if (window.pageYOffset > 300) {
             scrollTop.classList.add('visible');
@@ -147,7 +147,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // Wait for header to load then set active navigation link
     waitForHeaderAndSetActive();
 
-    // Set up scroll event listener
+    // Set up scroll event listener for scroll-to-top button
     window.addEventListener('scroll', handleScrollToTop);
 
     // Close mobile menu when clicking outside

@@ -2834,11 +2834,6 @@
     <!-- Common Footer -->
     <div id="footer-container"></div>
 
-    <!-- Scroll to Top Button -->
-    <button class="scroll-top" id="scrollTop" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
-        <i class="fa-solid fa-arrow-up"></i>
-    </button>
-
     <!-- Common Scripts -->
     <script src="components/common-scripts.js"></script>
 
@@ -3024,17 +3019,6 @@
 
         revealElements.forEach(element => {
             revealObserver.observe(element);
-        });
-
-        // Scroll to Top Button
-        const scrollTopBtn = document.getElementById('scrollTop');
-
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 300) {
-                scrollTopBtn.classList.add('visible');
-            } else {
-                scrollTopBtn.classList.remove('visible');
-            }
         });
 
         // Prevent default on anchor clicks for smooth scroll
