@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Remote Control Hobby Shop | RC Cars • Drones • Boats • Airplanes</title>
+    <title>RCSpeed | RC Cars • Drones • Boats • Airplanes</title>
     <link rel="icon" type="image/png" href="assets/favicon.png">
 
     <!-- Fonts -->
@@ -457,6 +457,7 @@
             display: flex;
             gap: 16px;
             flex-wrap: wrap;
+            justify-content: center;
             animation: fadeInUp 1s ease-out 0.8s both;
         }
 
@@ -469,10 +470,13 @@
             transition: all 0.15s ease;
             display: inline-flex;
             align-items: center;
+            justify-content: center;
             gap: 8px;
             border: none;
             text-transform: uppercase;
             letter-spacing: 0.05em;
+            min-width: 180px;
+            height: 52px;
         }
 
         .btn-primary {
@@ -659,6 +663,38 @@
         }
 
         /* Mobile Hero */
+        @media (max-width: 991px) {
+            .hero {
+                display: grid;
+                grid-template-columns: 1fr;
+                gap: 40px;
+                padding: 40px 20px 60px;
+                text-align: center;
+            }
+
+            .hero-content {
+                order: 1;
+            }
+
+            .hero-panel {
+                order: 2;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+
+            .hero-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 12px;
+            }
+
+            .hero-card img {
+                height: 120px;
+            }
+        }
+
         @media (max-width: 968px) {
             .hero {
                 grid-template-columns: 1fr;
@@ -668,6 +704,136 @@
 
             .hero-panel {
                 order: -1;
+            }
+        }
+
+        /* Tablet 768px - Ensure hero content appears first */
+        @media (max-width: 768px) {
+            .hero {
+                grid-template-columns: 1fr;
+                gap: 30px;
+                padding: 30px 20px 50px;
+            }
+
+            .hero-content {
+                order: -1;
+                text-align: center;
+            }
+
+            .hero-panel {
+                order: 1;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+                flex-direction: column;
+                align-items: center;
+                gap: 12px;
+            }
+
+            .hero-grid {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+
+            .hero-card img {
+                height: 180px;
+            }
+
+            .hero-panel-inner {
+                padding: 20px;
+            }
+        }
+
+        /* Mobile 640px */
+        @media (max-width: 640px) {
+            .hero {
+                padding: 25px 15px 40px;
+                gap: 25px;
+            }
+
+            .hero-title {
+                font-size: clamp(1.5rem, 6vw, 2.5rem);
+            }
+
+            .hero-subtitle {
+                font-size: 0.95rem;
+            }
+
+            .hero-tags {
+                font-size: 0.85rem;
+            }
+
+            .hero-buttons {
+                gap: 12px;
+            }
+
+            .btn {
+                padding: 12px 24px;
+                font-size: 0.9rem;
+            }
+
+            .hero-panel-inner {
+                padding: 16px;
+            }
+
+            .hero-status {
+                font-size: 0.85rem;
+            }
+
+            .hero-card img {
+                height: 160px;
+            }
+
+            .hero-card-content {
+                padding: 10px;
+            }
+
+            .hero-card-title {
+                font-size: 0.85rem;
+            }
+
+            .hero-card-sub {
+                font-size: 0.7rem;
+            }
+        }
+
+        /* Mobile 360px - Ensure hero content appears first */
+        @media (max-width: 360px) {
+            .hero {
+                grid-template-columns: 1fr;
+                gap: 20px;
+                padding: 20px 15px 40px;
+                min-height: auto;
+            }
+
+            .hero-content {
+                order: -1;
+                text-align: center;
+            }
+
+            .hero-panel {
+                order: 1;
+            }
+
+            .hero-title {
+                font-size: clamp(1.8rem, 8vw, 2.5rem);
+            }
+
+            .hero-subtitle {
+                font-size: 0.9rem;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+                flex-direction: column;
+                align-items: center;
+                gap: 12px;
+            }
+
+            .btn {
+                width: 100%;
+                max-width: 280px;
             }
         }
 
@@ -730,6 +896,7 @@
         .highlight-card {
             position: relative;
             padding: 32px;
+            padding-bottom: 60px;
             border-radius: 20px;
             background: var(--card-bg);
             border: 1px solid var(--border-color);
@@ -780,6 +947,7 @@
             color: var(--text-primary);
             position: relative;
             z-index: 2;
+            text-align: center;
         }
 
         .highlight-desc {
@@ -788,6 +956,7 @@
             line-height: 1.7;
             position: relative;
             z-index: 2;
+            text-align: center;
         }
 
         .highlight-accent {
@@ -798,9 +967,50 @@
             margin: 16px auto;
         }
 
+        .reviewer-name {
+            color: var(--color-primary);
+            font-size: 0.9rem;
+            margin-top: 12px;
+            text-align: center;
+            font-weight: 600;
+            white-space: nowrap;
+            position: absolute;
+            bottom: 32px;
+            left: 0;
+            right: 0;
+        }
+
         @media (max-width: 968px) {
             .highlights-grid {
                 grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .reviewer-name {
+                position: static;
+                bottom: auto;
+                left: auto;
+                right: auto;
+                margin-top: 16px;
+                padding-bottom: 8px;
+            }
+            
+            .highlight-card {
+                padding-bottom: 32px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .reviewer-name {
+                position: absolute;
+                bottom: 32px;
+                left: 0;
+                right: 0;
+                margin-top: 0;
+                padding-bottom: 0;
+            }
+            
+            .highlight-card {
+                padding-bottom: 60px;
             }
         }
 
@@ -811,6 +1021,22 @@
 
             .highlights-section {
                 padding: 60px 20px;
+            }
+            
+            .reviewer-name {
+                position: static;
+                bottom: auto;
+                left: auto;
+                right: auto;
+                font-size: 0.85rem;
+                white-space: normal;
+                line-height: 1.4;
+                margin-top: 16px;
+                padding-bottom: 8px;
+            }
+            
+            .highlight-card {
+                padding: 24px 20px 32px;
             }
         }
 
@@ -1315,7 +1541,7 @@
                 <div class="highlight-accent"></div>
                 <h3 class="highlight-title">Outstanding Quality & Service!</h3>
                 <p class="highlight-desc">"I purchased the Traxxas Toyota Supra drift car and I'm absolutely blown away! The attention to detail is incredible, it arrived perfectly tuned, and the customer service team helped me with setup questions. This is my fifth RC car and by far the best buying experience I've had. Highly recommend!"</p>
-                <p style="color: var(--color-primary); font-size: 0.9rem; margin-top: 12px;">- Alex Johnson, Professional RC Drifter</p>
+                <p class="reviewer-name">- Alex Johnson, Professional RC Drifter</p>
             </div>
             <div class="highlight-card js-reveal">
                 <div class="highlight-icon">
@@ -1324,7 +1550,7 @@
                 <div class="highlight-accent"></div>
                 <h3 class="highlight-title">Perfect Beginner Experience</h3>
                 <p class="highlight-desc">"As a complete beginner to RC hobbies, I was nervous about getting started. The team walked me through everything, helped me choose the perfect starter kit, and even provided video tutorials. Two months in and I'm already comfortable flying my drone. Couldn't have asked for better support!"</p>
-                <p style="color: var(--color-primary); font-size: 0.9rem; margin-top: 12px;">- Sarah Chen, Photography Enthusiast</p>
+                <p class="reviewer-name">- Sarah Chen, Photography Enthusiast</p>
             </div>
             <div class="highlight-card js-reveal">
                 <div class="highlight-icon">
@@ -1333,7 +1559,7 @@
                 <div class="highlight-accent"></div>
                 <h3 class="highlight-title">Competition-Grade Equipment</h3>
                 <p class="highlight-desc">"I compete in national RC racing events and need equipment that performs under pressure. RCSpeed has been my go-to for three years now. Their parts are genuine, their tuning service is spot-on, and their overnight shipping has saved me multiple times before races. This is the real deal for serious racers."</p>
-                <p style="color: var(--color-primary); font-size: 0.9rem; margin-top: 12px;">- Mike Rodriguez, National RC Champion</p>
+                <p class="reviewer-name">- Mike Rodriguez, National RC Champion</p>
             </div>
             <div class="highlight-card js-reveal">
                 <div class="highlight-icon">
@@ -1342,7 +1568,7 @@
                 <div class="highlight-accent"></div>
                 <h3 class="highlight-title">Beyond Expectations</h3>
                 <p class="highlight-desc">"I bought an RC boat for my son's birthday and ended up getting hooked myself! The quality is amazing, the prices are fair, and the community they've built is incredible. We now go to local RC events together - it's become our father-son bonding activity. Thank you RCSpeed!"</p>
-                <p style="color: var(--color-primary); font-size: 0.9rem; margin-top: 12px;">- David Thompson, RC Hobbyist</p>
+                <p class="reviewer-name">- David Thompson, RC Hobbyist</p>
             </div>
             <div class="highlight-card js-reveal">
                 <div class="highlight-icon">
@@ -1351,7 +1577,7 @@
                 <div class="highlight-accent"></div>
                 <h3 class="highlight-title">Professional Photography Drone</h3>
                 <p class="highlight-desc">"As a professional photographer, I need reliable equipment for aerial shots. The DJI drone I purchased came with professional calibration and the team even helped me with camera settings. The image quality is stunning and it's held up through hundreds of flights. Best investment for my business!"</p>
-                <p style="color: var(--color-primary); font-size: 0.9rem; margin-top: 12px;">- Emily Rodriguez, Wedding Photographer</p>
+                <p class="reviewer-name">- Emily Rodriguez, Wedding Photographer</p>
             </div>
             <div class="highlight-card js-reveal">
                 <div class="highlight-icon">
@@ -1360,7 +1586,7 @@
                 <div class="highlight-accent"></div>
                 <h3 class="highlight-title">Learning Made Easy</h3>
                 <p class="highlight-desc">"I'm 14 and just getting into RC airplanes. The beginner package I got was perfect - everything worked right out of the box and the instruction videos were super helpful. I crashed once and their support team helped me repair it for free. Now I can fly loops and rolls! This hobby is awesome!"</p>
-                <p style="color: var(--color-primary); font-size: 0.9rem; margin-top: 12px;">- Jake Williams, Student Pilot</p>
+                <p class="reviewer-name">- Jake Williams, Student Pilot</p>
             </div>
         </div>
     </section>

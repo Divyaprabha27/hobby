@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login | Remote Control Hobby Shop</title>
+    <title>Login | RCSpeed</title>
     <link rel="icon" type="image/png" href="assets/favicon.png">
     
     <!-- Fonts -->
@@ -112,7 +112,7 @@
 
         .auth-title {
             font-family: 'Orbitron', sans-serif;
-            font-size: 2rem;
+            font-size: 1.6rem;
             font-weight: 700;
             margin-bottom: 10px;
             background: var(--gradient-primary);
@@ -166,8 +166,14 @@
             font-size: 1rem;
             pointer-events: none;
             transition: all 0.3s ease;
-            background: var(--color-bg);
+            background: var(--card-bg);
             padding: 0 8px;
+            z-index: 1;
+            border-radius: 4px;
+            max-width: calc(100% - 40px);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
 
         .input-wrapper input:focus + label,
@@ -175,6 +181,13 @@
             top: 0;
             font-size: 0.8rem;
             color: var(--color-primary);
+            background: var(--card-bg);
+            z-index: 2;
+            border-radius: 4px;
+            max-width: calc(100% - 40px);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
 
         .form-options {
@@ -240,6 +253,8 @@
             padding: 0 15px;
             color: var(--text-secondary);
             font-size: 0.9rem;
+            position: relative;
+            z-index: 2;
         }
 
         .auth-separator::before {
@@ -361,24 +376,25 @@
             <div class="auth-content">
                 <a href="index.html" class="logo-auth">
                     <i class="fa-solid fa-bolt"></i>
-                    <span>Remote Control Hobby Shop</span>
+                    <span>RCSpeed</span>
                 </a>
 
                 <h1 class="auth-title">Welcome Back</h1>
-                <p class="auth-subtitle">Continue your RC journey</p>
-
+               
                 <!-- Login Form -->
                 <form class="auth-form">
                     <div class="form-group">
                         <div class="input-wrapper">
-                            <input type="email" id="email" placeholder=" " required>
-                            </div>
+                            <input type="email" id="email" placeholder="Enter your email address" required>
+                            <label for="email">Email Address</label>
+                        </div>
                     </div>
 
                     <div class="form-group">
                         <div class="input-wrapper">
-                            <input type="password" id="password" placeholder=" " required>
-                            </div>
+                            <input type="password" id="password" placeholder="Enter your password" required>
+                            <label for="password">Password</label>
+                        </div>
                     </div>
 
                     <div class="form-options">
@@ -398,11 +414,11 @@
                     <div class="social-row">
                         <button type="button" class="auth-social-btn">
                             <i class="fa-brands fa-google"></i>
-                            Google
+                            <span>Google</span>
                         </button>
                         <button type="button" class="auth-social-btn">
                             <i class="fa-brands fa-facebook-f"></i>
-                            Facebook
+                            <span>Facebook</span>
                         </button>
                     </div>
                 </form>
@@ -411,60 +427,59 @@
                     Don't have an account? <a href="signup.html">Sign Up</a>
                 </p>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <script>
-        // Theme Toggle Functionality
-        const themeToggle = document.getElementById('themeToggle');
-        const sunIcon = document.getElementById('sunIcon');
-        const moonIcon = document.getElementById('moonIcon');
-        const html = document.documentElement;
+        <script>
+            // Theme Toggle Functionality
+            const themeToggle = document.getElementById('themeToggle');
+            const sunIcon = document.getElementById('sunIcon');
+            const moonIcon = document.getElementById('moonIcon');
+            const html = document.documentElement;
 
-        // Check for saved theme preference or default to light mode
-        const currentTheme = localStorage.getItem('theme') || 'light';
-        html.setAttribute('data-theme', currentTheme);
-        updateThemeIcon(currentTheme);
+            // Check for saved theme preference or default to light mode
+            const currentTheme = localStorage.getItem('theme') || 'light';
+            html.setAttribute('data-theme', currentTheme);
+            updateThemeIcon(currentTheme);
 
-        themeToggle.addEventListener('click', () => {
-            const currentTheme = html.getAttribute('data-theme');
-            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-            
-            html.setAttribute('data-theme', newTheme);
-            localStorage.setItem('theme', newTheme);
-            updateThemeIcon(newTheme);
-        });
+            themeToggle.addEventListener('click', () => {
+                const currentTheme = html.getAttribute('data-theme');
+                const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+                
+                html.setAttribute('data-theme', newTheme);
+                localStorage.setItem('theme', newTheme);
+                updateThemeIcon(newTheme);
+            });
 
-        function updateThemeIcon(theme) {
-            if (theme === 'dark') {
-                sunIcon.style.opacity = '0';
-                moonIcon.style.opacity = '1';
-            } else {
-                sunIcon.style.opacity = '1';
-                moonIcon.style.opacity = '0';
+            function updateThemeIcon(theme) {
+                if (theme === 'dark') {
+                    sunIcon.style.opacity = '0';
+                    moonIcon.style.opacity = '1';
+                } else {
+                    sunIcon.style.opacity = '1';
+                    moonIcon.style.opacity = '0';
+                }
             }
-        }
 
-        // Form submission
-        document.querySelector('.auth-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const email = document.getElementById('email').value;
-            const password = document.getElementById('password').value;
-            
-            // Basic validation
-            if (!email || !password) {
-                alert('Please fill in all fields');
-                return;
-            }
-            
-            // Form is valid, proceed with login
-            console.log('Login successful!');
-            // Add your login logic here
-        });
-    </script>
-    
-    <!-- Common Scripts -->
-    <script src="components/common-scripts.js"></script>
-</body>
+            // Form submission
+            document.querySelector('.auth-form').addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const email = document.getElementById('email').value;
+                const password = document.getElementById('password').value;
+                
+                // Basic validation
+                if (!email || !password) {
+                    alert('Please fill in all fields');
+                    return;
+                }
+                
+                // Form is valid, proceed with login
+                console.log('Login successful!');
+                // Add your login logic here
+            });
+        </script>
+        
+        <!-- Common Scripts -->
+        <script src="components/common-scripts.js"></script>
+    </body>
 </html>

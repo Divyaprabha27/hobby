@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RC Hobby Store | Inspiration & Brand Vibe</title>
+    <title>RCSpeed | Inspiration & Brand Vibe</title>
     <link rel="icon" type="image/png" href="assets/favicon.png">
 
     <!-- Fonts -->
@@ -388,13 +388,14 @@
         .menu-toggle span {
             width: 22px;
             height: 2px;
-            background: var(--color-light);
+            background: var(--text-primary);
             border-radius: 2px;
             transition: all 0.15s ease;
         }
 
         .menu-toggle.active span:nth-child(1) {
             transform: rotate(45deg) translate(6px, 6px);
+            background: var(--text-primary);
         }
 
         .menu-toggle.active span:nth-child(2) {
@@ -403,6 +404,7 @@
 
         .menu-toggle.active span:nth-child(3) {
             transform: rotate(-45deg) translate(6px, -6px);
+            background: var(--text-primary);
         }
 
         /* Mobile Menu Styles */
@@ -720,6 +722,40 @@
             box-shadow: 0 0 30px rgba(34, 211, 238, 0.4);
         }
 
+        @media (max-width: 991px) {
+            .categories-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 18px;
+            }
+
+            .highlights-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+
+            .hero-ctas {
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: 16px;
+            }
+
+            .cta-btn {
+                min-width: 200px;
+            }
+
+            .action-shots {
+                opacity: 0.1;
+            }
+
+            .hero-title {
+                font-size: clamp(2.5rem, 6vw, 5rem);
+            }
+
+            .hero-subtitle {
+                font-size: clamp(1rem, 2vw, 1.5rem);
+            }
+        }
+
         @media (max-width: 968px) {
             .categories-grid {
                 grid-template-columns: repeat(2, 1fr);
@@ -728,6 +764,117 @@
 
             .highlights-grid {
                 grid-template-columns: repeat(2, 1fr);
+            }
+
+            .hero-ctas {
+                justify-content: center;
+                flex-direction: column;
+                align-items: center;
+                gap: 16px;
+            }
+
+            .cta-btn {
+                width: 100%;
+                max-width: 280px;
+            }
+
+            .action-shots {
+                display: none;
+            }
+
+            .hero-stats {
+                gap: 20px;
+            }
+
+            .stat-number {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .categories-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 16px;
+            }
+
+            .highlights-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 16px;
+            }
+
+            .hero-ctas {
+                justify-content: center;
+                flex-direction: column;
+                align-items: center;
+                gap: 14px;
+                padding: 0 20px;
+            }
+
+            .cta-btn {
+                width: 100%;
+                max-width: 260px;
+                padding: 16px 36px;
+                font-size: 0.95rem;
+            }
+
+            .action-shots {
+                display: none;
+            }
+
+            .cinematic-hero {
+                height: auto;
+                min-height: 90vh;
+                padding: 40px 20px;
+            }
+
+            .hero-content {
+                padding: 0 15px;
+                max-width: 100%;
+            }
+
+            .hero-title {
+                font-size: clamp(2rem, 5vw, 4rem);
+                margin-bottom: 25px;
+            }
+
+            .hero-subtitle {
+                font-size: clamp(0.9rem, 1.8vw, 1.3rem);
+                margin-bottom: 40px;
+            }
+
+            .hero-stats {
+                gap: 16px;
+                margin: 20px 0;
+            }
+
+            .stat-number {
+                font-size: 1.8rem;
+            }
+
+            .stat-label {
+                font-size: 0.8rem;
+            }
+
+            .categories-section,
+            .highlights-section {
+                padding: 60px 20px;
+            }
+
+            .category-card,
+            .highlight-card {
+                padding: 24px 20px;
+            }
+
+            .category-icon {
+                width: 70px;
+                height: 70px;
+                font-size: 2rem;
+            }
+
+            .highlight-icon {
+                width: 50px;
+                height: 50px;
+                font-size: 1.3rem;
             }
         }
 
@@ -761,6 +908,132 @@
 
             .categories-section {
                 padding: 60px 20px;
+            }
+
+            .hero-ctas {
+                justify-content: center;
+                flex-direction: column;
+                align-items: center;
+                gap: 12px;
+                padding: 0 20px;
+            }
+
+            .cta-btn {
+                width: 100%;
+                max-width: 240px;
+                padding: 16px 32px;
+                font-size: 0.9rem;
+            }
+
+            .action-shots {
+                display: none;
+            }
+
+            .cinematic-hero {
+                height: auto;
+                min-height: 100vh;
+                padding: 60px 20px;
+            }
+
+            .hero-content {
+                padding: 0 15px;
+            }
+
+            .hero-title {
+                font-size: clamp(1.8rem, 4vw, 3rem);
+                margin-bottom: 20px;
+            }
+
+            .hero-subtitle {
+                font-size: clamp(0.8rem, 1.5vw, 1.1rem);
+                margin-bottom: 30px;
+            }
+
+            .hero-stats {
+                flex-direction: column;
+                gap: 12px;
+                align-items: center;
+            }
+
+            .stat-number {
+                font-size: 1.5rem;
+            }
+
+            .stat-label {
+                font-size: 0.75rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .categories-grid {
+                grid-template-columns: 1fr;
+                gap: 14px;
+            }
+
+            .highlights-grid {
+                grid-template-columns: 1fr;
+                gap: 14px;
+            }
+
+            .cinematic-hero {
+                padding: 40px 15px;
+                min-height: 100vh;
+            }
+
+            .hero-content {
+                padding: 0 10px;
+            }
+
+            .hero-title {
+                font-size: clamp(1.5rem, 3.5vw, 2.5rem);
+                line-height: 1.2;
+            }
+
+            .hero-subtitle {
+                font-size: clamp(0.7rem, 1.2vw, 0.9rem);
+            }
+
+            .hero-ctas {
+                padding: 0 15px;
+                gap: 10px;
+            }
+
+            .cta-btn {
+                max-width: 220px;
+                padding: 14px 28px;
+                font-size: 0.85rem;
+            }
+
+            .categories-section,
+            .highlights-section {
+                padding: 40px 15px;
+            }
+
+            .category-card,
+            .highlight-card {
+                padding: 20px 16px;
+            }
+
+            .category-icon {
+                width: 60px;
+                height: 60px;
+                font-size: 1.8rem;
+            }
+
+            .highlight-icon {
+                width: 45px;
+                height: 45px;
+                font-size: 1.2rem;
+            }
+
+            .category-name,
+            .highlight-title {
+                font-size: 1.1rem;
+            }
+
+            .category-count,
+            .highlight-desc {
+                font-size: 0.85rem;
             }
         }
 
@@ -858,6 +1131,7 @@
             gap: 20px;
             margin-top: 40px;
             flex-wrap: wrap;
+            justify-content: center;
             animation: fadeInUp 1.5s ease-out 0.9s both;
         }
 
@@ -1111,6 +1385,923 @@
 
         .scroll-indicator i {
             font-size: 1.2rem;
+        }
+
+        /* ========== NICHE HERO SECTION ========== */
+        .niche-hero {
+            padding: 80px 20px;
+            background: var(--color-bg);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .niche-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .niche-content {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .niche-badge {
+            display: inline-block;
+            padding: 8px 16px;
+            background: rgba(34, 211, 238, 0.1);
+            border: 1px solid rgba(34, 211, 238, 0.3);
+            color: var(--color-primary);
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            border-radius: 999px;
+            width: fit-content;
+        }
+
+        .niche-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 800;
+            line-height: 1.1;
+            color: var(--text-primary);
+            margin: 0;
+        }
+
+        .niche-subtitle {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin: 0;
+        }
+
+        .niche-metrics {
+            display: flex;
+            gap: 40px;
+        }
+
+        .metric {
+            text-align: center;
+        }
+
+        .metric-number {
+            display: block;
+            font-size: 2rem;
+            font-weight: 900;
+            font-family: 'Orbitron', sans-serif;
+            color: var(--color-primary);
+            margin-bottom: 5px;
+        }
+
+        .metric-label {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .niche-cta {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .niche-btn {
+            padding: 16px 32px;
+            border-radius: 999px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            border: none;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            text-decoration: none;
+        }
+
+        .niche-btn.primary {
+            background: var(--gradient-primary);
+            color: white;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .niche-btn.primary:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .niche-btn.secondary {
+            background: var(--card-bg);
+            color: var(--text-primary);
+            border: 2px solid var(--border-color);
+            box-shadow: var(--shadow-md);
+        }
+
+        .niche-btn.secondary:hover {
+            background: var(--color-bg);
+            border-color: var(--color-primary);
+            color: var(--color-primary);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .niche-visual {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .tech-item {
+            background: rgba(34, 211, 238, 0.05);
+            border: 1px solid rgba(34, 211, 238, 0.2);
+            border-radius: 16px;
+            padding: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .tech-item:hover {
+            background: rgba(34, 211, 238, 0.1);
+            border-color: var(--color-primary);
+            transform: translateY(-5px);
+        }
+
+        .tech-item i {
+            font-size: 2rem;
+            color: var(--color-primary);
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .tech-item span {
+            font-size: 0.9rem;
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        /* Niche Hero Responsive */
+        @media (max-width: 991px) {
+            .niche-container {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .niche-content {
+                order: 1;
+            }
+
+            .niche-visual {
+                order: 2;
+            }
+
+            .tech-grid {
+                max-width: 100%;
+                grid-template-columns: repeat(4, 1fr);
+                gap: 16px;
+            }
+
+            .tech-item {
+                padding: 16px 12px;
+            }
+
+            .tech-item i {
+                font-size: 1.5rem;
+                margin-bottom: 8px;
+            }
+
+            .tech-item span {
+                font-size: 0.8rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .niche-hero {
+                padding: 60px 20px;
+            }
+
+            .niche-container {
+                gap: 30px;
+            }
+
+            .niche-content {
+                order: 1;
+                text-align: center;
+            }
+
+            .niche-title {
+                font-size: clamp(2rem, 6vw, 3rem);
+            }
+
+            .niche-subtitle {
+                font-size: 1rem;
+            }
+
+            .niche-metrics {
+                gap: 20px;
+                justify-content: center;
+            }
+
+            .metric-number {
+                font-size: 1.5rem;
+            }
+
+            .metric-label {
+                font-size: 0.75rem;
+            }
+
+            .niche-cta {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .niche-btn {
+                width: 100%;
+                max-width: 280px;
+                justify-content: center;
+            }
+
+            .niche-visual {
+                order: 2;
+            }
+
+            .tech-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 12px;
+            }
+
+            .tech-item {
+                padding: 12px 8px;
+            }
+
+            .tech-item i {
+                font-size: 1.3rem;
+            }
+
+            .tech-item span {
+                font-size: 0.75rem;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .niche-hero {
+                padding: 40px 15px;
+            }
+
+            .niche-container {
+                gap: 20px;
+            }
+
+            .niche-title {
+                font-size: clamp(1.5rem, 5vw, 2.5rem);
+            }
+
+            .niche-subtitle {
+                font-size: 0.95rem;
+            }
+
+            .niche-metrics {
+                flex-direction: column;
+                gap: 16px;
+                align-items: center;
+            }
+
+            .metric {
+                text-align: center;
+            }
+
+            .niche-btn {
+                max-width: 240px;
+                padding: 14px 28px;
+                font-size: 0.9rem;
+            }
+
+            .tech-grid {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+
+            .tech-item {
+                padding: 16px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 12px;
+                text-align: left;
+            }
+
+            .tech-item i {
+                font-size: 1.2rem;
+                margin-bottom: 0;
+            }
+
+            .tech-item span {
+                font-size: 0.85rem;
+            }
+        }
+
+        /* ========== PRECISION LAB SECTION ========== */
+        .precision-lab {
+            padding: 80px 20px;
+            background: var(--color-bg);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .lab-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .lab-text {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .lab-badge {
+            display: inline-block;
+            padding: 8px 16px;
+            background: rgba(34, 211, 238, 0.1);
+            border: 1px solid rgba(34, 211, 238, 0.3);
+            color: var(--color-primary);
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            border-radius: 999px;
+            width: fit-content;
+        }
+
+        .lab-text h2 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 800;
+            line-height: 1.1;
+            color: var(--text-primary);
+            margin: 0;
+        }
+
+        .lab-text p {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin: 0;
+        }
+
+        .lab-stats {
+            display: flex;
+            gap: 40px;
+        }
+
+        .lab-stat {
+            text-align: center;
+        }
+
+        .lab-stat .stat-number {
+            display: block;
+            font-size: 2rem;
+            font-weight: 900;
+            font-family: 'Orbitron', sans-serif;
+            color: var(--color-primary);
+            margin-bottom: 5px;
+        }
+
+        .lab-stat .stat-label {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .lab-btn {
+            padding: 16px 32px;
+            border-radius: 999px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            border: none;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            text-decoration: none;
+            background: var(--gradient-primary);
+            color: white;
+            box-shadow: var(--shadow-lg);
+            width: fit-content;
+            margin: 0 auto;
+        }
+
+        .lab-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .lab-visual {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .lab-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .lab-item {
+            background: rgba(34, 211, 238, 0.05);
+            border: 1px solid rgba(34, 211, 238, 0.2);
+            border-radius: 16px;
+            padding: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .lab-item:hover {
+            background: rgba(34, 211, 238, 0.1);
+            border-color: var(--color-primary);
+            transform: translateY(-5px);
+        }
+
+        .lab-item i {
+            font-size: 2rem;
+            color: var(--color-primary);
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .lab-item span {
+            font-size: 0.9rem;
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        /* Precision Lab Responsive */
+        @media (max-width: 991px) {
+            .lab-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .lab-text {
+                order: 1;
+            }
+
+            .lab-visual {
+                order: 2;
+            }
+
+            .lab-grid {
+                max-width: 100%;
+                grid-template-columns: repeat(4, 1fr);
+                gap: 16px;
+            }
+
+            .lab-item {
+                padding: 16px 12px;
+            }
+
+            .lab-item i {
+                font-size: 1.5rem;
+                margin-bottom: 8px;
+            }
+
+            .lab-item span {
+                font-size: 0.8rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .precision-lab {
+                padding: 60px 20px;
+            }
+
+            .lab-content {
+                gap: 30px;
+                text-align: center;
+            }
+
+            .lab-text h2 {
+                font-size: clamp(2rem, 6vw, 3rem);
+            }
+
+            .lab-text p {
+                font-size: 1rem;
+            }
+
+            .lab-stats {
+                gap: 20px;
+                justify-content: center;
+            }
+
+            .lab-stat .stat-number {
+                font-size: 1.5rem;
+            }
+
+            .lab-stat .stat-label {
+                font-size: 0.75rem;
+            }
+
+            .lab-btn {
+                width: 100%;
+                max-width: 280px;
+                justify-content: center;
+                margin: 0 auto;
+            }
+
+            .lab-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 12px;
+            }
+
+            .lab-item {
+                padding: 12px 8px;
+            }
+
+            .lab-item i {
+                font-size: 1.3rem;
+            }
+
+            .lab-item span {
+                font-size: 0.75rem;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .precision-lab {
+                padding: 40px 15px;
+            }
+
+            .lab-content {
+                gap: 20px;
+            }
+
+            .lab-text h2 {
+                font-size: clamp(1.5rem, 5vw, 2.5rem);
+            }
+
+            .lab-text p {
+                font-size: 0.95rem;
+            }
+
+            .lab-stats {
+                flex-direction: column;
+                gap: 16px;
+                align-items: center;
+            }
+
+            .lab-stat {
+                text-align: center;
+            }
+
+            .lab-btn {
+                max-width: 240px;
+                padding: 14px 28px;
+                font-size: 0.9rem;
+            }
+
+            .lab-grid {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+
+            .lab-item {
+                padding: 16px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 12px;
+                text-align: left;
+            }
+
+            .lab-item i {
+                font-size: 1.2rem;
+                margin-bottom: 0;
+            }
+
+            .lab-item span {
+                font-size: 0.85rem;
+            }
+        }
+
+        /* ========== ELITE COLLECTION SECTION ========== */
+        .elite-collection {
+            padding: 80px 20px;
+            background: var(--color-bg);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .elite-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .elite-header h2 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 800;
+            line-height: 1.1;
+            color: var(--text-primary);
+            margin-bottom: 20px;
+        }
+
+        .elite-header p {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .elite-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .elite-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            position: relative;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .elite-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-xl);
+            border-color: var(--color-primary);
+        }
+
+        .elite-badge {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: var(--gradient-primary);
+            color: white;
+            padding: 6px 12px;
+            border-radius: 999px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            z-index: 2;
+        }
+
+        .elite-img {
+            position: relative;
+            width: 100%;
+            height: 250px;
+            overflow: hidden;
+        }
+
+        .elite-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .elite-card:hover .elite-img img {
+            transform: scale(1.1);
+        }
+
+        .elite-info {
+            padding: 30px;
+        }
+
+        .elite-info h3 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 12px;
+        }
+
+        .elite-info p {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .elite-specs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+
+        .elite-specs span {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.85rem;
+            color: var(--text-primary);
+            background: rgba(34, 211, 238, 0.05);
+            border: 1px solid rgba(34, 211, 238, 0.2);
+            padding: 6px 12px;
+            border-radius: 999px;
+        }
+
+        .elite-specs i {
+            color: var(--color-primary);
+            font-size: 0.8rem;
+        }
+
+        .elite-price {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+        }
+
+        .elite-price .price {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--color-primary);
+        }
+
+        .elite-btn {
+            padding: 12px 24px;
+            border-radius: 999px;
+            background: var(--gradient-primary);
+            color: white;
+            border: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .elite-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        /* Elite Collection Responsive */
+        @media (max-width: 991px) {
+            .elite-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 24px;
+            }
+
+            .elite-img {
+                height: 220px;
+            }
+
+            .elite-info {
+                padding: 24px;
+            }
+
+            .elite-info h3 {
+                font-size: 1.3rem;
+            }
+
+            .elite-price .price {
+                font-size: 1.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .elite-collection {
+                padding: 60px 20px;
+            }
+
+            .elite-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+                max-width: 600px;
+                margin: 0 auto;
+            }
+
+            .elite-img {
+                height: 200px;
+            }
+
+            .elite-info {
+                padding: 20px;
+            }
+
+            .elite-info h3 {
+                font-size: 1.2rem;
+            }
+
+            .elite-info p {
+                font-size: 0.9rem;
+            }
+
+            .elite-specs {
+                gap: 8px;
+            }
+
+            .elite-specs span {
+                font-size: 0.8rem;
+                padding: 4px 10px;
+            }
+
+            .elite-price {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 12px;
+            }
+
+            .elite-btn {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .elite-collection {
+                padding: 40px 15px;
+            }
+
+            .elite-header {
+                margin-bottom: 40px;
+            }
+
+            .elite-header h2 {
+                font-size: clamp(2rem, 6vw, 3rem);
+            }
+
+            .elite-header p {
+                font-size: 1rem;
+            }
+
+            .elite-grid {
+                gap: 16px;
+                max-width: 100%;
+            }
+
+            .elite-img {
+                height: 180px;
+            }
+
+            .elite-info {
+                padding: 16px;
+            }
+
+            .elite-info h3 {
+                font-size: 1.1rem;
+            }
+
+            .elite-info p {
+                font-size: 0.85rem;
+            }
+
+            .elite-specs {
+                flex-direction: column;
+                gap: 6px;
+            }
+
+            .elite-specs span {
+                justify-content: center;
+            }
+
+            .elite-price .price {
+                font-size: 1.3rem;
+            }
+
+            .elite-btn {
+                padding: 10px 20px;
+                font-size: 0.85rem;
+            }
         }
 
         /* ========== RESPONSIVE ========== */
@@ -1536,7 +2727,7 @@
                             <span>Thermal Chamber</span>
                         </div>
                         <div class="lab-item">
-                            <i class="fa-solid fa-vibrate"></i>
+                            <i class="fa-solid fa-wave-square"></i>
                             <span>Vibration Test</span>
                         </div>
                         <div class="lab-item">

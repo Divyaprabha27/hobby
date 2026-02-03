@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Categories | Remote Control Hobby Shop</title>
+    <title>Categories | RCSpeed</title>
     <link rel="icon" type="image/png" href="assets/favicon.png">
     
     <!-- Fonts -->
@@ -200,7 +200,7 @@
 
         .categories-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(3, 1fr);
             gap: 30px;
         }
 
@@ -378,9 +378,43 @@
         /* ========== RESPONSIVE ========== */
         @media (max-width: 768px) {
             .nav-links {
-                display: none;
+                position: fixed;
+                top: 73px;
+                left: 0;
+                right: 0;
+                background: var(--card-bg);
+                backdrop-filter: blur(20px);
+                flex-direction: column;
+                padding: 20px;
+                gap: 20px;
+                border-bottom: 1px solid var(--border-color);
+                transform: translateY(-100%);
+                opacity: 0;
+                pointer-events: none;
+                transition: all 0.15s ease;
+                z-index: 999;
+                box-shadow: var(--shadow-lg);
             }
-            
+
+            .nav-links.active {
+                transform: translateY(0);
+                opacity: 1;
+                pointer-events: all;
+            }
+
+            .menu-toggle {
+                display: flex;
+            }
+
+            .navbar {
+                background: rgba(255, 255, 255, 0.95);
+                backdrop-filter: blur(20px);
+            }
+
+            [data-theme="dark"] .navbar {
+                background: rgba(2, 6, 23, 0.95);
+            }
+
             .categories-grid {
                 grid-template-columns: 1fr;
                 gap: 20px;
@@ -450,7 +484,7 @@
                     <i class="fa-solid fa-helicopter"></i>
                 </div>
                 <h2 class="category-title">RC Drones</h2>
-                <p class="category-description">Professional and hobbyist drones with advanced camera systems, GPS navigation, and intelligent flight modes. Perfect for aerial photography, racing, and surveillance applications.</p>
+                <p class="category-description">Professional and hobbyist drones with advanced camera systems, GPS navigation, and intelligent flight modes. Perfect for aerial photography, racing, and surveillance applications in rc drones.</p>
                 <div class="category-features">
                     <span class="feature">4K/8K Cameras</span>
                     <span class="feature">GPS Navigation</span>
@@ -522,10 +556,7 @@
                 </button>
             </div>
                 </div>
-                <button class="category-btn">
-                    <i class="fa-solid fa-arrow-right"></i>
-                    Explore Drones
-                </button>
+                
             </div>
 
             <!-- RC Boats Category -->

@@ -299,7 +299,7 @@ img {
 
 .product-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: 30px;
 }
 
@@ -573,6 +573,58 @@ footer {
 .scroll-to-top:hover {
     transform: translateY(-5px);
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* Scroll to Top Responsive */
+@media (max-width: 991px) {
+    .scroll-to-top {
+        width: 45px;
+        height: 45px;
+        bottom: 25px;
+        right: 25px;
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .scroll-to-top {
+        width: 40px;
+        height: 40px;
+        bottom: 20px;
+        right: 20px;
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 640px) {
+    .scroll-to-top {
+        width: 50px;
+        height: 50px;
+        bottom: 80px;
+        right: 20px;
+        font-size: 1.1rem;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    }
+}
+
+@media (max-width: 480px) {
+    .scroll-to-top {
+        width: 45px;
+        height: 45px;
+        bottom: 80px;
+        right: 15px;
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 360px) {
+    .scroll-to-top {
+        width: 40px;
+        height: 40px;
+        bottom: 80px;
+        right: 12px;
+        font-size: 0.9rem;
+    }
 }
 
 /* Shop Page Layout */
@@ -857,8 +909,13 @@ footer {
     }
 
     .shop-sidebar {
-        display: none;
-        /* Hide sidebar for simple mobile view checklist */
+        order: -1;
+        /* Show sidebar first on mobile */
+    }
+
+    .shop-grid {
+        order: 1;
+        /* Show products after sidebar on mobile */
     }
 
     .product-page {
@@ -1798,11 +1855,7 @@ footer {
     transform: translateY(0);
 }
 
-.team-overlay h3 {
-    font-family: var(--font-heading);
-    font-size: 1.3rem;
-    margin-bottom: 5px;
-}
+/* ========== COMPREHENSIVE RESPONSIVE STYLES ========== */
 
 .team-overlay span {
     color: var(--primary);
@@ -1877,4 +1930,459 @@ footer {
 
 .tech-card a:hover {
     color: var(--primary);
+}
+
+/* 991px Breakpoint - Large Tablet */
+@media (max-width: 991px) {
+    /* Navigation */
+    .nav-container {
+        padding: 0 20px;
+    }
+
+    .nav-links {
+        gap: 20px;
+    }
+
+    /* Hero Section */
+    .hero {
+        padding: 60px 20px 80px;
+        text-align: center;
+    }
+
+    .hero-content {
+        max-width: 100%;
+    }
+
+    .hero-title {
+        font-size: clamp(2rem, 6vw, 3.5rem);
+    }
+
+    .hero-subtitle {
+        font-size: clamp(1rem, 3vw, 1.2rem);
+    }
+
+    /* Shop Layout */
+    .shop-content {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .shop-sidebar {
+        order: -1;
+    }
+
+    .shop-grid {
+        order: 1;
+    }
+
+    /* Product Grid */
+    .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+
+    /* Categories */
+    .categories-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+
+    /* Footer */
+    .footer-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+    }
+}
+
+/* 1024px Breakpoint - Tablet */
+@media (max-width: 1024px) {
+    /* Navigation */
+    .nav-links {
+        position: fixed;
+        top: 73px;
+        left: 0;
+        right: 0;
+        background: var(--bg-card);
+        backdrop-filter: blur(20px);
+        flex-direction: column;
+        padding: 20px;
+        gap: 20px;
+        border-bottom: 1px solid var(--border-color);
+        transform: translateY(-100%);
+        opacity: 0;
+        pointer-events: none;
+        transition: all 0.15s ease;
+        z-index: 999;
+    }
+
+    .nav-links.active {
+        transform: translateY(0);
+        opacity: 1;
+        pointer-events: all;
+    }
+
+    .menu-toggle {
+        display: flex;
+    }
+
+    /* Hero Section */
+    .hero {
+        padding: 40px 20px 60px;
+    }
+
+    .hero-title {
+        font-size: clamp(1.8rem, 7vw, 3rem);
+    }
+
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+
+    /* Shop Controls */
+    .shop-controls {
+        flex-direction: column;
+        gap: 15px;
+        align-items: stretch;
+    }
+
+    .results-info {
+        justify-content: space-between;
+    }
+
+    /* Product Grid */
+    .product-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .product-card {
+        padding: 15px;
+    }
+
+    .product-img img {
+        height: 200px;
+    }
+
+    /* Categories */
+    .categories-section {
+        padding: 60px 20px;
+    }
+
+    .categories-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .category-card {
+        padding: 25px 20px;
+    }
+
+    /* Footer */
+    .footer-container {
+        grid-template-columns: 1fr;
+        gap: 25px;
+        text-align: center;
+    }
+
+    .socials {
+        justify-content: center;
+    }
+
+    /* Newsletter */
+    .newsletter {
+        flex-direction: column;
+    }
+
+    .newsletter button {
+        border-radius: 4px;
+        margin-top: 10px;
+    }
+}
+
+/* 640px Breakpoint - Mobile */
+@media (max-width: 640px) {
+    /* Base */
+    body {
+        font-size: 14px;
+    }
+
+    /* Hero Section */
+    .hero {
+        padding: 30px 15px 50px;
+    }
+
+    .hero-title {
+        font-size: clamp(1.5rem, 8vw, 2.5rem);
+    }
+
+    .hero-subtitle {
+        font-size: 0.95rem;
+    }
+
+    /* Shop Header */
+    .shop-header {
+        padding: 40px 0;
+        margin-top: 60px;
+    }
+
+    .shop-header h1 {
+        font-size: 2rem;
+    }
+
+    /* Shop Sidebar */
+    .shop-sidebar {
+        padding: 20px 15px;
+    }
+
+    .filter-group h3 {
+        font-size: 1rem;
+    }
+
+    /* Product Cards */
+    .product-card {
+        padding: 12px;
+    }
+
+    .product-img img {
+        height: 180px;
+    }
+
+    .product-details h4 {
+        font-size: 1rem;
+    }
+
+    .price {
+        font-size: 1.1rem;
+    }
+
+    .add-to-cart {
+        width: 40px;
+        height: 40px;
+        font-size: 0.9rem;
+    }
+
+    /* Categories */
+    .categories-section {
+        padding: 40px 15px;
+    }
+
+    .category-icon {
+        width: 60px;
+        height: 60px;
+        font-size: 2rem;
+    }
+
+    .category-name {
+        font-size: 1.2rem;
+    }
+
+    /* Pagination */
+    .pagination {
+        gap: 8px;
+    }
+
+    .pagination a {
+        width: 35px;
+        height: 35px;
+        font-size: 0.9rem;
+    }
+
+    /* Footer */
+    footer {
+        padding: 60px 5% 20px;
+    }
+
+    .footer-col h3 {
+        font-size: 1.5rem;
+    }
+
+    /* Product Detail Page */
+    .product-page {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        margin-top: 100px;
+    }
+
+    .thumb-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+
+    /* Team Section */
+    .team-section {
+        padding: 60px 5%;
+    }
+
+    .team-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+}
+
+/* 480px Breakpoint - Small Mobile */
+@media (max-width: 480px) {
+    /* Hero Section */
+    .hero {
+        padding: 25px 12px 40px;
+    }
+
+    .hero-title {
+        font-size: clamp(1.3rem, 9vw, 2.2rem);
+    }
+
+    .hero-subtitle {
+        font-size: 0.9rem;
+    }
+
+    /* Product Cards */
+    .product-card {
+        padding: 10px;
+    }
+
+    .product-img img {
+        height: 160px;
+    }
+
+    .product-details h4 {
+        font-size: 0.95rem;
+    }
+
+    .product-features {
+        flex-wrap: wrap;
+        gap: 4px;
+    }
+
+    .feature {
+        font-size: 0.7rem;
+        padding: 2px 6px;
+    }
+
+    /* Categories */
+    .category-card {
+        padding: 20px 15px;
+    }
+
+    .category-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 1.8rem;
+    }
+
+    .category-name {
+        font-size: 1.1rem;
+    }
+
+    .category-count {
+        font-size: 0.8rem;
+    }
+
+    /* Shop Controls */
+    .sort-select {
+        padding: 8px 12px;
+        font-size: 0.9rem;
+    }
+
+    /* Footer */
+    .footer-col h3 {
+        font-size: 1.3rem;
+    }
+
+    .footer-col p,
+    .footer-col a {
+        font-size: 0.9rem;
+    }
+
+    /* Newsletter */
+    .newsletter input {
+        padding: 10px;
+        font-size: 0.9rem;
+    }
+
+    .newsletter button {
+        padding: 10px 16px;
+        font-size: 0.9rem;
+    }
+}
+
+/* 360px Breakpoint - Very Small Mobile */
+@media (max-width: 360px) {
+    /* Base */
+    body {
+        font-size: 13px;
+    }
+
+    /* Hero Section */
+    .hero {
+        padding: 20px 10px 35px;
+    }
+
+    .hero-title {
+        font-size: clamp(1.2rem, 10vw, 2rem);
+    }
+
+    .hero-subtitle {
+        font-size: 0.85rem;
+    }
+
+    /* Product Cards */
+    .product-img img {
+        height: 140px;
+    }
+
+    .product-details h4 {
+        font-size: 0.9rem;
+        line-height: 1.3;
+    }
+
+    .rating {
+        font-size: 0.8rem;
+    }
+
+    .price {
+        font-size: 1rem;
+    }
+
+    .old-price {
+        font-size: 0.8rem;
+    }
+
+    /* Categories */
+    .category-icon {
+        width: 45px;
+        height: 45px;
+        font-size: 1.5rem;
+    }
+
+    .category-name {
+        font-size: 1rem;
+    }
+
+    /* Buttons */
+    .btn {
+        padding: 10px 20px;
+        font-size: 0.85rem;
+        min-width: 120px;
+        height: 44px;
+    }
+
+    /* Form Elements */
+    input, select, textarea {
+        font-size: 0.9rem;
+    }
+
+    /* Footer */
+    footer {
+        padding: 40px 3% 15px;
+    }
+
+    .footer-col h3 {
+        font-size: 1.2rem;
+    }
+
+    /* Social Links */
+    .socials a {
+        width: 30px;
+        height: 30px;
+        font-size: 0.9rem;
+    }
 }

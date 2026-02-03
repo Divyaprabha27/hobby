@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign Up | Remote Control Hobby Shop</title>
+    <title>Sign Up | RCSpeed</title>
     <link rel="icon" type="image/png" href="assets/favicon.png">
     
     <!-- Fonts -->
@@ -112,7 +112,7 @@
 
         .auth-title {
             font-family: 'Orbitron', sans-serif;
-            font-size: 2rem;
+            font-size: 1.4rem;
             font-weight: 700;
             margin-bottom: 10px;
             background: var(--gradient-primary);
@@ -172,8 +172,9 @@
             font-size: 1rem;
             pointer-events: none;
             transition: all 0.3s ease;
-            background: var(--color-bg);
+            background: var(--card-bg);
             padding: 0 8px;
+            z-index: 1;
         }
 
         .input-wrapper input:focus + label,
@@ -181,6 +182,8 @@
             top: 0;
             font-size: 0.8rem;
             color: var(--color-primary);
+            background: var(--card-bg);
+            z-index: 2;
         }
 
         .form-options {
@@ -246,6 +249,8 @@
             padding: 0 15px;
             color: var(--text-secondary);
             font-size: 0.9rem;
+            position: relative;
+            z-index: 2;
         }
 
         .auth-separator::before {
@@ -372,25 +377,24 @@
             <div class="auth-content">
                 <a href="index.html" class="logo-auth">
                     <i class="fa-solid fa-bolt"></i>
-                    <span>Remote Control Hobby Shop</span>
+                    <span>RCSpeed</span>
                 </a>
 
                 <h1 class="auth-title">Join Our Community</h1>
-                <p class="auth-subtitle">Start your RC adventure today</p>
-
+                
                 <!-- Signup Form -->
                 <form class="auth-form">
                     <!-- Name and Email in one row -->
                     <div class="form-row">
                         <div class="form-group">
                             <div class="input-wrapper">
-                                <input type="text" id="fullname" placeholder=" " required>
+                                <input type="text" id="fullname" placeholder="Enter your full name" required>
                                 <label for="fullname">Full Name</label>
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="input-wrapper">
-                                <input type="email" id="email" placeholder=" " required>
+                                <input type="email" id="email" placeholder="Enter your email address" required>
                                 <label for="email">Email Address</label>
                             </div>
                         </div>
@@ -400,13 +404,13 @@
                     <div class="form-row">
                         <div class="form-group">
                             <div class="input-wrapper">
-                                <input type="password" id="password" placeholder=" " required>
+                                <input type="password" id="password" placeholder="Create a password" required>
                                 <label for="password">Password</label>
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="input-wrapper">
-                                <input type="password" id="confirm-password" placeholder=" " required>
+                                <input type="password" id="confirm-password" placeholder="Confirm your password" required>
                                 <label for="confirm-password">Confirm Password</label>
                             </div>
                         </div>
@@ -428,11 +432,11 @@
                     <div class="social-row">
                         <button type="button" class="auth-social-btn">
                             <i class="fa-brands fa-google"></i>
-                            Google
+                            <span>Google</span>
                         </button>
                         <button type="button" class="auth-social-btn">
                             <i class="fa-brands fa-facebook-f"></i>
-                            Facebook
+                            <span>Facebook</span>
                         </button>
                     </div>
                 </form>

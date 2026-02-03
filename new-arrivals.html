@@ -12,12 +12,19 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,300;0,600;0,800;1,600&family=Inter:wght@300;400;600&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Inter:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
 
     <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="components/common-styles.css">
+    <style>
+        /* Remove space between navbar and header */
+        .shop-header {
+            margin-top: 0 !important;
+            padding: 40px 0;
+        }
+    </style>
 </head>
 
 <body>
@@ -91,50 +98,19 @@
             <div class="product-grid">
                 <!-- New Arrival 1 -->
                 <div class="product-card">
-                    <div class="product-badge new">Just In</div>
-                    <a href="product.html" class="product-img">
-                        <img src="https://images.unsplash.com/photo-1594787318286-3d835c1d207f?q=80&w=2070&auto=format&fit=crop"
-                            alt="Speedster X1">
-                        <div class="product-overlay">
+                    <div class="product-badge sale">Sale</div>
+                    <a href="#" class="product-img">
+                        <img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?q=80&w=2070&auto=format&fit=crop"
+                            alt="McLaren RC">
+                            <div class="product-overlay">
                             <button class="quick-view">
                                 <i class="fa-solid fa-eye"></i> Quick View
                             </button>
                         </div>
-                    </div>
-                </div>
-
-                <div class="product-card">
-                    <a href="product.html" class="product-img">
-                        <img src="https://images.unsplash.com/photo-1579829366248-204fe8413f31?q=80&w=2070&auto=format&fit=crop"
-                            alt="SkyHawk Pro">
-                    </a>
-                    <div class="product-details">
-                        <div class="product-cat">Drones</div>
-                        <h4><a href="product.html">SkyHawk Pro 4K</a></h4>
-                        <div class="rating">
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                        </div>
-                        <div class="price-row">
-                            <span class="price">$1,250.00</span>
-                            <button class="btn-icon"><i class="fa-solid fa-plus"></i></button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Repeat for mock layout -->
-                <div class="product-card">
-                    <div class="product-badge sale">Sale</div>
-                    <a href="product.html" class="product-img">
-                        <img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?q=80&w=2070&auto=format&fit=crop"
-                            alt="McLaren RC">
                     </a>
                     <div class="product-details">
                         <div class="product-cat">On-Road</div>
-                        <h4><a href="product.html">GT Racer 500</a></h4>
+                        <h4><a href="#">GT Racer 500</a></h4>
                         <div class="rating">
                             <i class="fa-solid fa-star"></i>
                             <i class="fa-solid fa-star"></i>
@@ -149,39 +125,35 @@
                         </div>
                     </div>
                 </div>
-
-                <div class="product-card">
+                    <div class="product-card">
+                    <a href="#" class="product-img">
+                        <img src="https://images.unsplash.com/photo-1579829366248-204fe8413f31?q=80&w=2070&auto=format&fit=crop"
+                            alt="SkyHawk Pro">
+                            <div class="product-overlay">
+                            <button class="quick-view">
+                                <i class="fa-solid fa-eye"></i> Quick View
+                            </button>
+                        </div>
+                    </a>
                     <div class="product-details">
-                        <div class="product-cat">Professional Drone</div>
-                        <h4><a href="product.html">SkyVision Pro 4K Plus</a></h4>
+                        <div class="product-cat">Drones</div>
+                        <h4><a href="#">SkyHawk Pro 4K</a></h4>
                         <div class="rating">
                             <i class="fa-solid fa-star"></i>
                             <i class="fa-solid fa-star"></i>
                             <i class="fa-solid fa-star"></i>
                             <i class="fa-solid fa-star"></i>
                             <i class="fa-solid fa-star"></i>
-                            <span>(5.0) 45 reviews</span>
                         </div>
                         <div class="price-row">
-                            <div class="price">
-                                <span class="current">$1,199.99</span>
-                            </div>
-                            <button class="add-to-cart">
-                                <i class="fa-solid fa-cart-plus"></i>
-                            </button>
-                        </div>
-                        <div class="product-features">
-                            <span class="feature">6K Camera</span>
-                            <span class="feature">45min Flight</span>
-                            <span class="feature">Obstacle Avoidance</span>
+                            <span class="price">$1,250.00</span>
+                            <button class="btn-icon"><i class="fa-solid fa-plus"></i></button>
                         </div>
                     </div>
                 </div>
-
-                <!-- New Arrival 3 -->
                 <div class="product-card">
                     <div class="product-badge limited">Limited</div>
-                    <a href="product.html" class="product-img">
+                    <a href="#" class="product-img">
                         <img src="https://images.unsplash.com/photo-1516397281156-ca07cf9746fc?q=80&w=2070&auto=format&fit=crop"
                             alt="Speed Boat">
                         <div class="product-overlay">
@@ -192,7 +164,7 @@
                     </a>
                     <div class="product-details">
                         <div class="product-cat">Racing Boat</div>
-                        <h4><a href="product.html">AquaRacer X3 Turbo</a></h4>
+                        <h4><a href="#">AquaRacer X3 Turbo</a></h4>
                         <div class="rating">
                             <i class="fa-solid fa-star"></i>
                             <i class="fa-solid fa-star"></i>
@@ -205,9 +177,7 @@
                             <div class="price">
                                 <span class="current">$599.99</span>
                             </div>
-                            <button class="add-to-cart">
-                                <i class="fa-solid fa-cart-plus"></i>
-                            </button>
+                            
                         </div>
                         <div class="product-features">
                             <span class="feature">45MPH</span>
@@ -216,12 +186,10 @@
                         </div>
                     </div>
                 </div>
-
-                <!-- New Arrival 4 -->
                 <div class="product-card">
                     <div class="product-badge new">New</div>
-                    <a href="product.html" class="product-img">
-                        <img src="https://images.unsplash.com/photo-1577720643272-dfa8475c8fc3?q=80&w=2070&auto=format&fit=crop"
+                    <a href="#" class="product-img">
+                        <img src="https://m.media-amazon.com/images/I/81wqRBWFFHL._AC_UF350,350_QL80_.jpg"
                             alt="Airplane">
                         <div class="product-overlay">
                             <button class="quick-view">
@@ -231,7 +199,7 @@
                     </a>
                     <div class="product-details">
                         <div class="product-cat">RC Airplane</div>
-                        <h4><a href="product.html">CloudSurfer 4D Pro</a></h4>
+                        <h4><a href="#">CloudSurfer 4D Pro</a></h4>
                         <div class="rating">
                             <i class="fa-solid fa-star"></i>
                             <i class="fa-solid fa-star"></i>
@@ -255,12 +223,11 @@
                         </div>
                     </div>
                 </div>
-
                 <!-- New Arrival 5 -->
                 <div class="product-card">
                     <div class="product-badge hot">Hot</div>
-                    <a href="product.html" class="product-img">
-                        <img src="https://images.unsplash.com/photo-1618506469810-47c5c8cce6c2?q=80&w=2070&auto=format&fit=crop"
+                    <a href="#" class="product-img">
+                        <img src="https://ozzytoys.com/cdn/shop/files/fmspowerwagonfcx24-1-124rcrockcrawlers_785x.jpg?v=1764095488"
                             alt="Monster Truck">
                         <div class="product-overlay">
                             <button class="quick-view">
@@ -270,7 +237,7 @@
                     </a>
                     <div class="product-details">
                         <div class="product-cat">Monster Truck</div>
-                        <h4><a href="product.html">Crusher MT5 Extreme</a></h4>
+                        <h4><a href="#">Crusher MT5 Extreme</a></h4>
                         <div class="rating">
                             <i class="fa-solid fa-star"></i>
                             <i class="fa-solid fa-star"></i>
@@ -294,12 +261,11 @@
                         </div>
                     </div>
                 </div>
-
-                <!-- New Arrival 6 -->
+                 <!-- New Arrival 6 -->
                 <div class="product-card">
                     <div class="product-badge exclusive">Exclusive</div>
-                    <a href="product.html" class="product-img">
-                        <img src="https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?q=80&w=2070&auto=format&fit=crop"
+                    <a href="#" class="product-img">
+                        <img src="https://elitehobbies.nz/wp-content/uploads/2025/11/540111__54033.jpg"
                             alt="Rock Crawler">
                         <div class="product-overlay">
                             <button class="quick-view">
@@ -309,7 +275,7 @@
                     </a>
                     <div class="product-details">
                         <div class="product-cat">Rock Crawler</div>
-                        <h4><a href="product.html">TrailMaster Elite</a></h4>
+                        <h4><a href="#">TrailMaster Elite</a></h4>
                         <div class="rating">
                             <i class="fa-solid fa-star"></i>
                             <i class="fa-solid fa-star"></i>
@@ -333,83 +299,6 @@
                         </div>
                     </div>
                 </div>
-
-                <!-- New Arrival 7 -->
-                <div class="product-card">
-                    <div class="product-badge new">New</div>
-                    <a href="product.html" class="product-img">
-                        <img src="https://images.unsplash.com/photo-1586953208448-b95a79798f07?q=80&w=2070&auto=format&fit=crop"
-                            alt="Drone Racing">
-                        <div class="product-overlay">
-                            <button class="quick-view">
-                                <i class="fa-solid fa-eye"></i> Quick View
-                            </button>
-                        </div>
-                    </a>
-                    <div class="product-details">
-                        <div class="product-cat">FPV Racing Drone</div>
-                        <h4><a href="product.html">RacerX FPV Pro</a></h4>
-                        <div class="rating">
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star-half-alt"></i>
-                            <span>(4.9) 34 reviews</span>
-                        </div>
-                        <div class="price-row">
-                            <div class="price">
-                                <span class="current">$899.99</span>
-                            </div>
-                            <button class="add-to-cart">
-                                <i class="fa-solid fa-cart-plus"></i>
-                            </button>
-                        </div>
-                        <div class="product-features">
-                            <span class="feature">1080p FPV</span>
-                            <span class="feature">Acro Mode</span>
-                            <span class="feature">Carbon Frame</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- New Arrival 8 -->
-                <div class="product-card">
-                    <div class="product-badge eco">Eco</div>
-                    <a href="product.html" class="product-img">
-                        <img src="https://images.unsplash.com/photo-1549398349-1e8e2a653ca9?q=80&w=2070&auto=format&fit=crop"
-                            alt="Solar Boat">
-                        <div class="product-overlay">
-                            <button class="quick-view">
-                                <i class="fa-solid fa-eye"></i> Quick View
-                            </button>
-                        </div>
-                    </a>
-                    <div class="product-details">
-                        <div class="product-cat">Eco Boat</div>
-                        <h4><a href="product.html">SolarWave Eco Plus</a></h4>
-                        <div class="rating">
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="far fa-star"></i>
-                            <span>(4.3) 28 reviews</span>
-                        </div>
-                        <div class="price-row">
-                            <div class="price">
-                                <span class="current">$249.99</span>
-                            </div>
-                            <button class="add-to-cart">
-                                <i class="fa-solid fa-cart-plus"></i>
-                            </button>
-                        </div>
-                        <div class="product-features">
-                            <span class="feature">Solar Powered</span>
-                            <span class="feature">Eco Friendly</span>
-                            <span class="feature">Silent Motor</span>
-                        </div>
-                    </div>
                 </div>
             </div>
         </main>

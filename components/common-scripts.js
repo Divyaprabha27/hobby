@@ -1,5 +1,39 @@
 // ========== COMMON JAVASCRIPT FOR ALL PAGES ==========
 
+// Load Common Components
+function loadCommonComponents() {
+    // Load header
+    const headerContainer = document.getElementById('header-container');
+    if (headerContainer) {
+        // Show loading state
+        headerContainer.innerHTML = '<div style="padding: 20px; text-align: center; color: var(--text-secondary);">Loading...</div>';
+        
+        // Load header
+        fetch('components/header.html')
+            .then(response => response.text())
+            .then(html => {
+                headerContainer.innerHTML = html;
+                // Set active link after header loads
+                if (typeof setActiveNavLink === 'function') {
+                    setActiveNavLink();
+                }
+            })
+            .catch(error => {
+                console.error('Error loading header:', error);
+                headerContainer.innerHTML = '<div style="padding: 20px; text-align: center; color: red;">Error loading navigation</div>';
+            });
+    }
+
+    // Load footer
+    const footerContainer = document.getElementById('footer-container');
+    if (footerContainer) {
+        fetch('components/footer.html')
+            .then(response => response.text())
+            .then(html => footerContainer.innerHTML = html)
+            .catch(error => console.error('Error loading footer:', error));
+    }
+}
+
 // Theme Toggle Functionality
 function toggleTheme() {
     const html = document.documentElement;
@@ -104,6 +138,9 @@ function waitForHeaderAndSetActive() {
 
 // Initialize everything when DOM is loaded
 document.addEventListener('DOMContentLoaded', function () {
+    // Load common components (header and footer)
+    loadCommonComponents();
+    
     // Initialize theme
     initializeTheme();
     
@@ -143,3 +180,4 @@ window.toggleTheme = toggleTheme;
 window.toggleMobileMenu = toggleMobileMenu;
 window.scrollToTop = scrollToTop;
 window.setActiveNavLink = setActiveNavLink;
+window.loadCommonComponents = loadCommonComponents;

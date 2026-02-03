@@ -142,7 +142,7 @@ img {
 
 /* Footer Brand Styling */
 .footer-brand {
-    font-size: 1.5rem;
+    font-size: 1.1rem;
     margin-bottom: 15px;
     display: inline-flex;
 }
@@ -417,6 +417,7 @@ img {
 
 .menu-toggle.active span:nth-child(1) {
     transform: rotate(45deg) translate(6px, 6px);
+    background: var(--text-primary);
 }
 
 .menu-toggle.active span:nth-child(2) {
@@ -425,6 +426,37 @@ img {
 
 .menu-toggle.active span:nth-child(3) {
     transform: rotate(-45deg) translate(6px, -6px);
+    background: var(--text-primary);
+}
+
+.menu-toggle.active {
+    background: var(--card-bg);
+    border-color: var(--border-color);
+    color: var(--text-primary);
+}
+
+/* Dark mode overrides for hamburger menu */
+[data-theme="dark"] .menu-toggle {
+    background: var(--card-bg);
+    border-color: var(--border-color);
+}
+
+[data-theme="dark"] .menu-toggle span {
+    background: var(--text-primary);
+}
+
+[data-theme="dark"] .menu-toggle.active span:nth-child(1) {
+    background: var(--text-primary);
+}
+
+[data-theme="dark"] .menu-toggle.active span:nth-child(3) {
+    background: var(--text-primary);
+}
+
+[data-theme="dark"] .menu-toggle.active {
+    background: var(--card-bg);
+    border-color: var(--border-color);
+    color: var(--text-primary);
 }
 
 /* Mobile Menu Styles */
@@ -1191,7 +1223,6 @@ img {
     color: var(--text-secondary);
     font-size: 0.9rem;
     margin-bottom: 8px;
-    display: flex;
     align-items: center;
     gap: 8px;
 }
