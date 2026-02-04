@@ -22,7 +22,58 @@
         /* Remove space between navbar and header */
         .shop-header {
             margin-top: 0 !important;
-            padding: 40px 0;
+            padding-top: 20px;
+            padding-bottom: 20px;
+        }
+
+        .dropdown-menu {
+            display: none;
+        }
+
+        .dropdown-menu.active {
+            display: block;
+        }
+
+        .filter-dropdowns {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        /* Hide filter dropdowns on desktop (sidebar used instead) */
+        .filter-dropdown {
+            display: none;
+        }
+
+        @media (max-width: 991px) {
+            .filter-dropdown {
+                display: block;
+            }
+
+            .shop-sidebar {
+                display: none;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .filter-dropdowns {
+                gap: 10px;
+            }
+
+            .filter-dropdown {
+                flex: 1;
+                min-width: 140px;
+            }
+
+            .dropdown-toggle {
+                width: 100%;
+                justify-content: space-between;
+            }
+
+            .sort-select {
+                width: 100%;
+                margin-top: 10px;
+            }
         }
     </style>
 </head>
@@ -146,13 +197,14 @@
                                 </div>
                             </div>
                         </div>
+
+                        <select class="sort-select">
+                            <option>Sort by: Newest First</option>
+                            <option>Price: Low to High</option>
+                            <option>Price: High to Low</option>
+                            <option>Best Rating</option>
+                        </select>
                     </div>
-                    <select class="sort-select">
-                        <option>Sort by: Newest First</option>
-                        <option>Price: Low to High</option>
-                        <option>Price: High to Low</option>
-                        <option>Best Rating</option>
-                    </select>
                 </div>
             </div>
 
