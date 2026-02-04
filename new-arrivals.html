@@ -28,8 +28,8 @@
 </head>
 
 <body>
-    
-        <!-- Common Header -->
+
+    <!-- Common Header -->
     <div id="header-container"></div>
 
     <!-- Shop Header -->
@@ -87,12 +87,73 @@
                         </button>
                     </div>
                 </div>
-                <select class="sort-select">
-                    <option>Sort by: Newest First</option>
-                    <option>Price: Low to High</option>
-                    <option>Price: High to Low</option>
-                    <option>Best Rating</option>
-                </select>
+                <div class="controls-right">
+                    <div class="filter-dropdowns">
+                        <!-- Category Dropdown -->
+                        <div class="filter-dropdown">
+                            <button class="dropdown-toggle" id="categoryDropdown">
+                                <span>Category</span>
+                                <i class="fa-solid fa-chevron-down"></i>
+                            </button>
+                            <div class="dropdown-menu" id="categoryMenu">
+                                <div class="dropdown-item">
+                                    <label><input type="checkbox"> RC Cars (12)</label>
+                                </div>
+                                <div class="dropdown-item">
+                                    <label><input type="checkbox"> Drones (8)</label>
+                                </div>
+                                <div class="dropdown-item">
+                                    <label><input type="checkbox"> Boats (5)</label>
+                                </div>
+                                <div class="dropdown-item">
+                                    <label><input type="checkbox"> Parts (24)</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Price Range Dropdown -->
+                        <div class="filter-dropdown">
+                            <button class="dropdown-toggle" id="priceDropdown">
+                                <span>Price Range</span>
+                                <i class="fa-solid fa-chevron-down"></i>
+                            </button>
+                            <div class="dropdown-menu" id="priceMenu">
+                                <div class="price-filter-content">
+                                    <input type="range" class="price-slider" min="0" max="2000" id="priceSlider">
+                                    <div class="price-labels">
+                                        <span>$0</span>
+                                        <span id="priceValue">$2000+</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Brand Dropdown -->
+                        <div class="filter-dropdown">
+                            <button class="dropdown-toggle" id="brandDropdown">
+                                <span>Brand</span>
+                                <i class="fa-solid fa-chevron-down"></i>
+                            </button>
+                            <div class="dropdown-menu" id="brandMenu">
+                                <div class="dropdown-item">
+                                    <label><input type="checkbox"> Traxxas</label>
+                                </div>
+                                <div class="dropdown-item">
+                                    <label><input type="checkbox"> DJI</label>
+                                </div>
+                                <div class="dropdown-item">
+                                    <label><input type="checkbox"> Arrma</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <select class="sort-select">
+                        <option>Sort by: Newest First</option>
+                        <option>Price: Low to High</option>
+                        <option>Price: High to Low</option>
+                        <option>Best Rating</option>
+                    </select>
+                </div>
             </div>
 
             <div class="product-grid">
@@ -102,7 +163,7 @@
                     <a href="#" class="product-img">
                         <img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?q=80&w=2070&auto=format&fit=crop"
                             alt="McLaren RC">
-                            <div class="product-overlay">
+                        <div class="product-overlay">
                             <button class="quick-view">
                                 <i class="fa-solid fa-eye"></i> Quick View
                             </button>
@@ -125,11 +186,11 @@
                         </div>
                     </div>
                 </div>
-                    <div class="product-card">
+                <div class="product-card">
                     <a href="#" class="product-img">
                         <img src="https://images.unsplash.com/photo-1579829366248-204fe8413f31?q=80&w=2070&auto=format&fit=crop"
                             alt="SkyHawk Pro">
-                            <div class="product-overlay">
+                        <div class="product-overlay">
                             <button class="quick-view">
                                 <i class="fa-solid fa-eye"></i> Quick View
                             </button>
@@ -177,7 +238,7 @@
                             <div class="price">
                                 <span class="current">$599.99</span>
                             </div>
-                            
+
                         </div>
                         <div class="product-features">
                             <span class="feature">45MPH</span>
@@ -261,7 +322,7 @@
                         </div>
                     </div>
                 </div>
-                 <!-- New Arrival 6 -->
+                <!-- New Arrival 6 -->
                 <div class="product-card">
                     <div class="product-badge exclusive">Exclusive</div>
                     <a href="#" class="product-img">
@@ -299,7 +360,7 @@
                         </div>
                     </div>
                 </div>
-                </div>
+            </div>
             </div>
         </main>
     </section>
@@ -481,6 +542,100 @@
                 }
             });
         });
+
+
+        // Dropdown Filter Functionality
+        const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
+        const dropdownMenus = document.querySelectorAll('.dropdown-menu');
+
+        dropdownToggles.forEach(toggle => {
+            toggle.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const menuId = toggle.id.replace('Dropdown', 'Menu');
+                const menu = document.getElementById(menuId);
+
+                // Close all other dropdowns
+                dropdownToggles.forEach(otherToggle => {
+                    if (otherToggle !== toggle) {
+                        otherToggle.classList.remove('active');
+                    }
+                });
+
+                dropdownMenus.forEach(otherMenu => {
+                    if (otherMenu !== menu) {
+                        otherMenu.classList.remove('active');
+                    }
+                });
+
+                // Toggle current dropdown
+                toggle.classList.toggle('active');
+                menu.classList.toggle('active');
+            });
+        });
+
+        // Close dropdowns when clicking outside
+        document.addEventListener('click', () => {
+            dropdownToggles.forEach(toggle => {
+                toggle.classList.remove('active');
+            });
+            dropdownMenus.forEach(menu => {
+                menu.classList.remove('active');
+            });
+        });
+
+        // Prevent dropdown menu clicks from closing the dropdown
+        dropdownMenus.forEach(menu => {
+            menu.addEventListener('click', (e) => {
+                e.stopPropagation();
+            });
+        });
+
+        // Price slider functionality
+        const priceSlider = document.getElementById('priceSlider');
+        const priceValue = document.getElementById('priceValue');
+
+        if (priceSlider && priceValue) {
+            priceSlider.addEventListener('input', (e) => {
+                const value = e.target.value;
+                if (value == 2000) {
+                    priceValue.textContent = '$2000+';
+                } else {
+                    priceValue.textContent = `$${value}`;
+                }
+            });
+        }
+
+        // Filter application logic
+        const filterCheckboxes = document.querySelectorAll('.dropdown-item input[type="checkbox"]');
+
+        filterCheckboxes.forEach(checkbox => {
+            checkbox.addEventListener('change', () => {
+                updateFilterCounts();
+                // Here you would typically filter the products
+                console.log('Filter changed:', checkbox.parentElement.textContent.trim());
+            });
+        });
+
+        function updateFilterCounts() {
+            // Update dropdown button text to show active filter count
+            const categoryDropdown = document.getElementById('categoryDropdown');
+            const brandDropdown = document.getElementById('brandDropdown');
+
+            const activeCategoryFilters = document.querySelectorAll('#categoryMenu input:checked').length;
+            const activeBrandFilters = document.querySelectorAll('#brandMenu input:checked').length;
+
+            if (activeCategoryFilters > 0) {
+                categoryDropdown.querySelector('span').textContent = `Category (${activeCategoryFilters})`;
+            } else {
+                categoryDropdown.querySelector('span').textContent = 'Category';
+            }
+
+            if (activeBrandFilters > 0) {
+                brandDropdown.querySelector('span').textContent = `Brand (${activeBrandFilters})`;
+            } else {
+                brandDropdown.querySelector('span').textContent = 'Brand';
+            }
+        }
     </script>
 </body>
 

@@ -11,24 +11,72 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Inter:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
 
     <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="components/common-styles.css">
-    
+
     <style>
-        /* Remove space between navbar and header */
-        .shop-header {
-            margin-top: 0 !important;
-            padding: 40px 0;
+        .dropdown-menu {
+            display: none;
+        }
+
+        .dropdown-menu.active {
+            display: block;
+        }
+
+        /* Dropdown Layout */
+        .filter-dropdowns {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        /* Hide filter dropdowns on desktop (sidebar used instead) */
+        .filter-dropdown {
+            display: none;
+        }
+
+        @media (max-width: 991px) {
+            .filter-dropdown {
+                display: block;
+            }
+
+            .shop-sidebar {
+                display: none;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .filter-dropdowns {
+                gap: 10px;
+            }
+
+            .filter-dropdown {
+                display: block;
+                flex: 1;
+                min-width: 140px;
+            }
+
+            .dropdown-toggle {
+                width: 100%;
+                justify-content: space-between;
+            }
+
+            .sort-select {
+                width: 100%;
+                margin-top: 10px;
+            }
         }
     </style>
 </head>
 
 <body>
 
-     <!-- Common Header -->
+    <!-- Common Header -->
     <div id="header-container"></div>
     <!-- Shop Header -->
     <header class="shop-header">
@@ -85,14 +133,79 @@
                         </button>
                     </div>
                 </div>
-                <select class="sort-select">
-                    <option>Sort by: Featured</option>
-                    <option>Price: Low to High</option>
-                    <option>Price: High to Low</option>
-                    <option>Newest First</option>
-                    <option>Best Rating</option>
-                    <option>Most Popular</option>
-                </select>
+                <div class="controls-right">
+                    <div class="filter-dropdowns">
+
+                        <!-- Category -->
+                        <div class="filter-dropdown">
+                            <button class="dropdown-toggle">
+                                <span>Category</span>
+                                <i class="fa-solid fa-chevron-down"></i>
+                            </button>
+                            <div class="dropdown-menu">
+                                <div class="dropdown-item">
+                                    <label><input type="checkbox"> RC Cars</label>
+                                </div>
+                                <div class="dropdown-item">
+                                    <label><input type="checkbox"> Drones</label>
+                                </div>
+                                <div class="dropdown-item">
+                                    <label><input type="checkbox"> Boats</label>
+                                </div>
+                                <div class="dropdown-item">
+                                    <label><input type="checkbox"> Parts</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Price -->
+                        <div class="filter-dropdown">
+                            <button class="dropdown-toggle">
+                                <span>Price Range</span>
+                                <i class="fa-solid fa-chevron-down"></i>
+                            </button>
+                            <div class="dropdown-menu">
+                                <div class="dropdown-item">
+                                    <label><input type="checkbox"> $0 - $100</label>
+                                </div>
+                                <div class="dropdown-item">
+                                    <label><input type="checkbox"> $100 - $500</label>
+                                </div>
+                                <div class="dropdown-item">
+                                    <label><input type="checkbox"> $500 - $1000</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Brand -->
+                        <div class="filter-dropdown">
+                            <button class="dropdown-toggle">
+                                <span>Brand</span>
+                                <i class="fa-solid fa-chevron-down"></i>
+                            </button>
+                            <div class="dropdown-menu">
+                                <div class="dropdown-item">
+                                    <label><input type="checkbox"> Traxxas</label>
+                                </div>
+                                <div class="dropdown-item">
+                                    <label><input type="checkbox"> DJI</label>
+                                </div>
+                                <div class="dropdown-item">
+                                    <label><input type="checkbox"> Arrma</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <select class="sort-select">
+                            <option>Sort by: Featured</option>
+                            <option>Price: Low to High</option>
+                            <option>Price: High to Low</option>
+                            <option>Newest First</option>
+                            <option>Best Rating</option>
+                            <option>Most Popular</option>
+                        </select>
+                    </div>
+                </div>
             </div>
 
             <div class="product-grid" id="productContainer">
@@ -217,8 +330,7 @@
                 <div class="product-card">
                     <div class="product-badge sale">-25%</div>
                     <a href="#" class="product-img">
-                        <img src="https://robosynckits.in/wp-content/uploads/2021/05/sku.jpg"
-                            alt="Airplane">
+                        <img src="https://robosynckits.in/wp-content/uploads/2021/05/sku.jpg" alt="Airplane">
                         <div class="product-overlay">
                             <button class="quick-view">
                                 <i class="fa-solid fa-eye"></i> Quick View
@@ -367,163 +479,48 @@
     </script>
 
     <script>
-        // Mobile Menu Toggle
-        const menuToggle = document.getElementById('menuToggle');
-        const navLinks = document.getElementById('navLinks');
+        document.addEventListener("DOMContentLoaded", function () {
 
-        if (menuToggle && navLinks) {
-            menuToggle.addEventListener('click', () => {
-                menuToggle.classList.toggle('active');
-                navLinks.classList.toggle('active');
-            });
+            /* =========================
+               DROPDOWN FUNCTIONALITY
+            ========================== */
+            const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
+            const dropdownMenus = document.querySelectorAll('.dropdown-menu');
 
-            // Close menu when clicking a link
-            navLinks.querySelectorAll('a, button').forEach(item => {
-                item.addEventListener('click', () => {
-                    if (window.innerWidth <= 768) {
-                        menuToggle.classList.remove('active');
-                        navLinks.classList.remove('active');
-                    }
+            dropdownToggles.forEach(toggle => {
+                toggle.addEventListener('click', function (e) {
+                    e.stopPropagation();
+
+                    const menu = this.nextElementSibling;
+
+                    // Close other dropdowns
+                    dropdownMenus.forEach(m => {
+                        if (m !== menu) m.classList.remove('active');
+                    });
+
+                    dropdownToggles.forEach(t => {
+                        if (t !== this) t.classList.remove('active');
+                    });
+
+                    // Toggle current dropdown
+                    this.classList.toggle('active');
+                    menu.classList.toggle('active');
                 });
             });
-        }
 
-        // Theme Toggle Functionality
-        const themeToggle = document.getElementById('themeToggle');
-        const sunIcon = document.getElementById('sunIcon');
-        const moonIcon = document.getElementById('moonIcon');
-        const html = document.documentElement;
+            // Close when clicking outside
+            document.addEventListener('click', function () {
+                dropdownMenus.forEach(menu => menu.classList.remove('active'));
+                dropdownToggles.forEach(toggle => toggle.classList.remove('active'));
+            });
 
-        // Check for saved theme preference or default to light mode
-        const currentTheme = localStorage.getItem('theme') || 'light';
-        html.setAttribute('data-theme', currentTheme);
-        updateThemeIcon(currentTheme);
-
-        themeToggle.addEventListener('click', () => {
-            const currentTheme = html.getAttribute('data-theme');
-            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-
-            html.setAttribute('data-theme', newTheme);
-            localStorage.setItem('theme', newTheme);
-            updateThemeIcon(newTheme);
-        });
-
-        function updateThemeIcon(theme) {
-            if (theme === 'dark') {
-                sunIcon.style.opacity = '0';
-                moonIcon.style.opacity = '1';
-            } else {
-                sunIcon.style.opacity = '1';
-                moonIcon.style.opacity = '0';
-            }
-        }
-
-        // Smooth Scroll Function
-        function scrollToSection(id) {
-            const element = document.getElementById(id);
-            if (element) {
-                const offset = 80;
-                const elementPosition = element.getBoundingClientRect().top;
-                const offsetPosition = elementPosition + window.pageYOffset - offset;
-
-                window.scrollTo({
-                    top: offsetPosition,
-                    behavior: 'smooth'
+            // Prevent closing when clicking inside menu
+            dropdownMenus.forEach(menu => {
+                menu.addEventListener('click', function (e) {
+                    e.stopPropagation();
                 });
-            }
-        }
-        window.scrollToSection = scrollToSection;
-
-        // Filter Products Function
-        function filterProducts(category) {
-            scrollToSection('products');
-            // This function can be extended to filter products by category
-            // For now, it just scrolls to products section
-            console.log('Filtering by category:', category);
-        }
-        window.filterProducts = filterProducts;
-
-        // 3D Tilt Effect on Hero Panel
-        const heroPanel = document.getElementById('heroPanel');
-        const heroPanelInner = document.getElementById('heroPanelInner');
-
-        if (heroPanel && heroPanelInner) {
-            let isHovering = false;
-
-            heroPanel.addEventListener('mouseenter', () => {
-                isHovering = true;
             });
 
-            heroPanel.addEventListener('mouseleave', () => {
-                isHovering = false;
-                heroPanelInner.style.transform = 'rotateX(0deg) rotateY(0deg)';
-            });
-
-            heroPanel.addEventListener('mousemove', (e) => {
-                if (!isHovering) return;
-
-                const rect = heroPanel.getBoundingClientRect();
-                const x = e.clientX - rect.left;
-                const y = e.clientY - rect.top;
-
-                const centerX = rect.width / 2;
-                const centerY = rect.height / 2;
-
-                const rotateX = (y - centerY) / 20;
-                const rotateY = (centerX - x) / 20;
-
-                heroPanelInner.style.transform = `perspective(1200px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-            });
-
-            // Mobile device orientation (optional)
-            if (window.DeviceOrientationEvent) {
-                window.addEventListener('deviceorientation', (e) => {
-                    if (!isHovering && window.innerWidth <= 968) {
-                        const beta = e.beta || 0;
-                        const gamma = e.gamma || 0;
-                        const rotateX = Math.max(Math.min(beta / 10, 10), -10);
-                        const rotateY = Math.max(Math.min(gamma / 10, 10), -10);
-                        heroPanelInner.style.transform = `perspective(1200px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-                    }
-                });
-            }
-        }
-
-        // Scroll Reveal Animation
-        const revealElements = document.querySelectorAll('.js-reveal');
-
-        // Make elements visible immediately
-        revealElements.forEach(element => {
-            element.classList.add('visible');
-        });
-
-        // Optional: Keep scroll reveal for future dynamic content
-        const revealObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                    revealObserver.unobserve(entry.target);
-                }
-            });
-        }, {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        });
-
-        revealElements.forEach(element => {
-            revealObserver.observe(element);
-        });
-
-        // Prevent default on anchor clicks for smooth scroll
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                const href = this.getAttribute('href');
-                if (href !== '#' && href !== '#home') {
-                    e.preventDefault();
-                    const targetId = href.substring(1);
-                    scrollToSection(targetId);
-                }
-            });
         });
     </script>
     <script src="script.js"></script>
