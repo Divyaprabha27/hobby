@@ -34,6 +34,57 @@
             display: block;
         }
 
+        /* Add to Cart Button Styles */
+        .add-to-cart {
+            background: var(--primary);
+            color: #000;
+            border: 2px solid var(--primary);
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-family: var(--font-heading);
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: var(--accent-glow);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            width: auto;
+            height: auto;
+            margin-top: 15px;
+        }
+
+        .add-to-cart:hover {
+            background: transparent;
+            color: var(--primary);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 143, 163, 0.3);
+        }
+
+        .add-to-cart:active {
+            transform: translateY(0);
+        }
+
+        .add-to-cart i {
+            font-size: 1rem;
+        }
+
+        [data-theme="dark"] .add-to-cart {
+            background: var(--primary);
+            color: #000;
+            border-color: var(--primary);
+            box-shadow: 0 0 20px rgba(0, 229, 255, 0.4);
+        }
+
+        [data-theme="dark"] .add-to-cart:hover {
+            background: transparent;
+            color: var(--primary);
+            box-shadow: 0 5px 20px rgba(0, 229, 255, 0.3);
+        }
+
         .filter-dropdowns {
             display: flex;
             gap: 20px;
@@ -215,11 +266,6 @@
                     <a href="#" class="product-img">
                         <img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?q=80&w=2070&auto=format&fit=crop"
                             alt="McLaren RC">
-                        <div class="product-overlay">
-                            <button class="quick-view">
-                                <i class="fa-solid fa-eye"></i> Quick View
-                            </button>
-                        </div>
                     </a>
                     <div class="product-details">
                         <div class="product-cat">On-Road</div>
@@ -236,17 +282,15 @@
                             <span class="old-price">$550.00</span>
                             <button class="btn-icon"><i class="fa-solid fa-plus"></i></button>
                         </div>
+                        <button class="add-to-cart">
+                                <i class="fa-solid fa-cart-plus"></i> Add to Cart
+                            </button>
                     </div>
                 </div>
                 <div class="product-card">
                     <a href="#" class="product-img">
                         <img src="https://images.unsplash.com/photo-1579829366248-204fe8413f31?q=80&w=2070&auto=format&fit=crop"
                             alt="SkyHawk Pro">
-                        <div class="product-overlay">
-                            <button class="quick-view">
-                                <i class="fa-solid fa-eye"></i> Quick View
-                            </button>
-                        </div>
                     </a>
                     <div class="product-details">
                         <div class="product-cat">Drones</div>
@@ -262,6 +306,9 @@
                             <span class="price">$1,250.00</span>
                             <button class="btn-icon"><i class="fa-solid fa-plus"></i></button>
                         </div>
+                        <button class="add-to-cart">
+                                <i class="fa-solid fa-cart-plus"></i> Add to Cart
+                            </button>
                     </div>
                 </div>
                 <div class="product-card">
@@ -269,11 +316,6 @@
                     <a href="#" class="product-img">
                         <img src="https://images.unsplash.com/photo-1516397281156-ca07cf9746fc?q=80&w=2070&auto=format&fit=crop"
                             alt="Speed Boat">
-                        <div class="product-overlay">
-                            <button class="quick-view">
-                                <i class="fa-solid fa-eye"></i> Quick View
-                            </button>
-                        </div>
                     </a>
                     <div class="product-details">
                         <div class="product-cat">Racing Boat</div>
@@ -290,13 +332,10 @@
                             <div class="price">
                                 <span class="current">$599.99</span>
                             </div>
-
                         </div>
-                        <div class="product-features">
-                            <span class="feature">45MPH</span>
-                            <span class="feature">Turbo Boost</span>
-                            <span class="feature">Carbon Fiber</span>
-                        </div>
+                        <button class="add-to-cart">
+                                <i class="fa-solid fa-cart-plus"></i> Add to Cart
+                            </button>
                     </div>
                 </div>
                 <div class="product-card">
@@ -304,11 +343,6 @@
                     <a href="#" class="product-img">
                         <img src="https://m.media-amazon.com/images/I/81wqRBWFFHL._AC_UF350,350_QL80_.jpg"
                             alt="Airplane">
-                        <div class="product-overlay">
-                            <button class="quick-view">
-                                <i class="fa-solid fa-eye"></i> Quick View
-                            </button>
-                        </div>
                     </a>
                     <div class="product-details">
                         <div class="product-cat">RC Airplane</div>
@@ -325,15 +359,11 @@
                             <div class="price">
                                 <span class="current">$389.99</span>
                             </div>
-                            <button class="add-to-cart">
-                                <i class="fa-solid fa-cart-plus"></i>
+                            
+                        </div>
+                        <button class="add-to-cart">
+                                <i class="fa-solid fa-cart-plus"></i> Add to Cart
                             </button>
-                        </div>
-                        <div class="product-features">
-                            <span class="feature">4D Aerobatics</span>
-                            <span class="feature">8CH Radio</span>
-                            <span class="feature">Smart Flight</span>
-                        </div>
                     </div>
                 </div>
                 <!-- New Arrival 5 -->
@@ -342,11 +372,6 @@
                     <a href="#" class="product-img">
                         <img src="https://ozzytoys.com/cdn/shop/files/fmspowerwagonfcx24-1-124rcrockcrawlers_785x.jpg?v=1764095488"
                             alt="Monster Truck">
-                        <div class="product-overlay">
-                            <button class="quick-view">
-                                <i class="fa-solid fa-eye"></i> Quick View
-                            </button>
-                        </div>
                     </a>
                     <div class="product-details">
                         <div class="product-cat">Monster Truck</div>
@@ -363,15 +388,11 @@
                             <div class="price">
                                 <span class="current">$429.99</span>
                             </div>
-                            <button class="add-to-cart">
-                                <i class="fa-solid fa-cart-plus"></i>
+                            
+                        </div>
+                        <button class="add-to-cart">
+                                <i class="fa-solid fa-cart-plus"></i> Add to Cart
                             </button>
-                        </div>
-                        <div class="product-features">
-                            <span class="feature">6x6 Drive</span>
-                            <span class="feature">Hydraulic</span>
-                            <span class="feature">LED Lights</span>
-                        </div>
                     </div>
                 </div>
                 <!-- New Arrival 6 -->
@@ -380,11 +401,6 @@
                     <a href="#" class="product-img">
                         <img src="https://elitehobbies.nz/wp-content/uploads/2025/11/540111__54033.jpg"
                             alt="Rock Crawler">
-                        <div class="product-overlay">
-                            <button class="quick-view">
-                                <i class="fa-solid fa-eye"></i> Quick View
-                            </button>
-                        </div>
                     </a>
                     <div class="product-details">
                         <div class="product-cat">Rock Crawler</div>
@@ -401,15 +417,12 @@
                             <div class="price">
                                 <span class="current">$799.99</span>
                             </div>
-                            <button class="add-to-cart">
-                                <i class="fa-solid fa-cart-plus"></i>
+                            
+                        </div>
+                        
+                        <button class="add-to-cart">
+                                <i class="fa-solid fa-cart-plus"></i> Add to Cart
                             </button>
-                        </div>
-                        <div class="product-features">
-                            <span class="feature">Electric Winch</span>
-                            <span class="feature">Portal Axles</span>
-                            <span class="feature">Smart Control</span>
-                        </div>
                     </div>
                 </div>
             </div>
